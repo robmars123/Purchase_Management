@@ -14,15 +14,58 @@ namespace Project_Managment.Controllers
     {
         private AccessDbContext db = new AccessDbContext();
 
+        public int? id { get; private set; }
+
+
+
+
+
+       
+
+
+
+
+
         // GET: Assets
         public ActionResult Index()
         {
-            return View(db.Assets.ToList());
+
+            
+
+
+
+            var courses = db.Assets.Include(c => c.Employees);
+            //filter out nulls.
+            var g = from s in db.Assets
+                    join sa in db.Employees on s.EmployeeID equals sa.EmployeeID
+                    where s.EmployeeID != null && sa.LastName != null
+                    select s;
+
+            return View(g);
+
+
+
+
+
+
+          //  return View(courses.ToList());
+
+
+            // return View(db.Assets.ToList());
+            // return View();
+        }
+
+        private ActionResult View(List<Employee> list1, List<Asset> list2)
+        {
+            throw new NotImplementedException();
         }
 
         // GET: Assets/Details/5
         public ActionResult Details(int? id)
         {
+
+          //  List<Asset> assets = db.Assets.Where(s => s.AssetID == id);
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

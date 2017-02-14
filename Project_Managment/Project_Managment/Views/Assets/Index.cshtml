@@ -1,171 +1,72 @@
 ﻿@model IEnumerable<Project_Managment.Models.Asset>
-
 @{
     ViewBag.Title = "Index";
 }
+<div class="header">
+    <img class="header_logo" src="~/Images/home_icon.png" />
+    <h4>Dashboard</h4>
+    <div class="myButton">
+        @Html.ActionLink("Add Device", "Create")
+    </div>
+</div>
+<div class="wrapper">
+    <table class="table">
 
-<h2>Index</h2>
+        <tr class="columns">
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.AssetDescription)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EmployeeID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AssetCategoryID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.StatusID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DepartmentID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VendorID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Make)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ModelNumber)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SerialNumber)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DateAcquired)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DateSold)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PurchasePrice)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DepreciationMethod)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DepreciableLife)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SalvageValue)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CurrentValue)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Comments)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NextSchedMaint)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Processor)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RAM)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Condition)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ComputerName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SSMA_TimeStamp)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.AssetDescription)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EmployeeID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AssetCategoryID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StatusID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DepartmentID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.VendorID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Make)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ModelNumber)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SerialNumber)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateAcquired)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateSold)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PurchasePrice)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DepreciationMethod)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DepreciableLife)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SalvageValue)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CurrentValue)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Comments)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NextSchedMaint)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Processor)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RAM)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Condition)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ComputerName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SSMA_TimeStamp)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.AssetID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.AssetID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.AssetID })
-        </td>
-    </tr>
-}
 
-</table>
+            <th>
+                @Html.DisplayNameFor(model => model.Make)
+            </th>
+            <th>
+                Assigned User
+
+            </th>
+            <th>
+                Device Type
+            </th>
+            <th>
+                Current Status
+            </th>
+            <th>
+                Department
+            </th>
+            <th>
+                Vendor Name
+            </th>
+
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @if (!string.IsNullOrEmpty(item.Make))
+                {
+                        @Html.ActionLink(item.Make, "Details", new { id = item.AssetID })
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Employees.FirstName)
+                    @Html.DisplayFor(modelItem => item.Employees.LastName)
+
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Asset_Category.AssetCategory)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status.Status1)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Department.DepartmentName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Vendor.VendorName)
+                </td>
+
+            </tr>
+        }
+    </table>
+    </div>

@@ -1,210 +1,168 @@
 ﻿@model Project_Managment.Models.Asset
-
 @{
     ViewBag.Title = "Details";
 }
+<div class="header">
+    <img class="header_logo" src="~/Images/Device.png" />
+    <h4>Device Details</h4>
 
-<h2>Details</h2>
-
-<div>
-    <h4>Asset</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.AssetDescription)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.AssetDescription)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.EmployeeID)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.EmployeeID)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.AssetCategoryID)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.AssetCategoryID)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.StatusID)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.StatusID)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DepartmentID)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DepartmentID)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.VendorID)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.VendorID)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Make)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Make)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ModelNumber)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ModelNumber)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.SerialNumber)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.SerialNumber)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DateAcquired)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DateAcquired)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DateSold)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DateSold)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PurchasePrice)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PurchasePrice)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DepreciationMethod)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DepreciationMethod)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DepreciableLife)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DepreciableLife)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.SalvageValue)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.SalvageValue)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CurrentValue)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CurrentValue)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Comments)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Comments)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.NextSchedMaint)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NextSchedMaint)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Processor)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Processor)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.RAM)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.RAM)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Condition)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Condition)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ComputerName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ComputerName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.SSMA_TimeStamp)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.SSMA_TimeStamp)
-        </dd>
-
-    </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.AssetID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<div class="wrapper">
+    <div class="asset_create">
+        <div class="body_header">
+            Device Information
+        </div>
+        
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                Asset Description:
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.AssetDescription)
+            </dd>
+            <dt>
+                Employee's Full Name:
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Employees.FirstName)
+                @Html.DisplayFor(model => model.Employees.LastName)
+            </dd>
+            <dt>
+                Device Type:
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Asset_Category.AssetCategory)
+            </dd>
+            <dt>
+                Current Status:
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Status.Status1)
+            </dd>
+            <dt>
+                Department:
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Department.DepartmentName)
+            </dd>
+            <dt>
+                Vendor Name:
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Vendor.VendorName)
+            </dd>
+            <dt>
+                Make:
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Make)
+            </dd>
+            <dt>
+                Model Number:
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ModelNumber)
+            </dd>
+            <dt>
+                Serial Number:
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.SerialNumber)
+            </dd>
+            <dt>
+                Date Acquired:
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.DateAcquired)
+            </dd>
+            <dt>
+                Date Sold:
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.DateSold)
+            </dd>
+            <dt>
+                Purchase Price:
+            </dt>
+            <dd>
+                $@Html.DisplayFor(model => model.PurchasePrice)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.DepreciationMethod)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.DepreciationMethod)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.DepreciableLife)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.DepreciableLife)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.SalvageValue)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.SalvageValue)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.CurrentValue)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.CurrentValue)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Comments)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Comments)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.NextSchedMaint)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.NextSchedMaint)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Processor)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Processor)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.RAM)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.RAM)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Condition)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Condition)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ComputerName)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ComputerName)
+            </dd>
+
+        </dl>
+
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.AssetID }) |
+
+            @Html.ActionLink("Delete", "Delete", new { id = Model.AssetID }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+    </div>
+
+</div>

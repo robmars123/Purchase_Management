@@ -22,6 +22,8 @@ namespace Project_Managment.Models
         public virtual DbSet<Status> Status { get; set; }
         public virtual DbSet<Vendor> Vendors { get; set; }
 
+
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Asset>()

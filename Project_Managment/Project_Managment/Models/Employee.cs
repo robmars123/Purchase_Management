@@ -8,6 +8,7 @@ namespace Project_Managment.Models
 
     public partial class Employee
     {
+        [Key]
         public int EmployeeID { get; set; }
 
         [StringLength(50)]

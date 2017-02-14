@@ -5,7 +5,7 @@ namespace Project_Managment.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
-
+ 
     public partial class Asset
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -13,13 +13,14 @@ namespace Project_Managment.Models
         {
             Depreciations = new HashSet<Depreciation>();
             Maintenances = new HashSet<Maintenance>();
+          
         }
-
+        [Key]
         public int AssetID { get; set; }
 
         [StringLength(255)]
         public string AssetDescription { get; set; }
-
+        
         public int? EmployeeID { get; set; }
 
         public int? AssetCategoryID { get; set; }
@@ -84,10 +85,30 @@ namespace Project_Managment.Models
         [Timestamp]
         public byte[] SSMA_TimeStamp { get; set; }
 
+
+
+
+
+
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Depreciation> Depreciations { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Maintenance> Maintenances { get; set; }
+        
+
+        //Nagivation Properties
+        //Just added [Key] on top and these  table names - then you can access from the Index.cshtml - Asset
+        //employee table
+        public virtual Employee  Employees { get;  set; }
+        //asset_cat
+        public virtual Asset_Category Asset_Category { get; set; }
+        //Status
+        public virtual Status Status { get; set; }
+        //Department
+        public virtual Department Department { get; set; }
+        //Vendor
+        public virtual Vendor Vendor { get; set; }
     }
 }
