@@ -7,6 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Project_Managment.Models;
+using PagedList;
+using PagedList.Mvc;
 
 namespace Project_Managment.Controllers
 {
@@ -28,36 +30,37 @@ namespace Project_Managment.Controllers
 
 
         // GET: Assets
-        public ActionResult Index(string option, string search)
+        public ActionResult Index(string option, string search, int? page)
         {
-            if (option == null )
+            if (option == null)
             {
                 var g = from s in db.Assets
                         join sa in db.Employees on s.EmployeeID equals sa.EmployeeID
                         where s.EmployeeID != null && sa.LastName != null
                         select s;
 
-                return View(g);
+                return View(g.ToList().ToPagedList(page ?? 1, 6));
             }
-                 //Search Bar
-                //if a user choose the radio button option as Subject  
-               else if (option == "Make")
-                {
+            //     //Search Bar
+            //if a user choose the radio button option as Subject  
+             else if (option == "Make")
+          //  if (option == "Make")
+            {
                     //Index action method will return a view with a student records based on what a user specify the value in textbox  
-                    return View(db.Assets.Where(x => x.Make == search || x.Make.StartsWith(search)).ToList());
+                    return View(db.Assets.Where(x => x.Make == search || x.Make.StartsWith(search) && x.Employees.LastName != null).ToList().ToPagedList( page ?? 1, 6));
                 }
                 else if (option == "Department")
                 {
                     return View
                         (
                         db.Assets.Where(x => x.Department.DepartmentName == search ||
-                    search == null || x.Department.DepartmentName.StartsWith(search)).ToList()
+                    search == null || x.Department.DepartmentName.StartsWith(search)).ToList().ToPagedList(page ?? 1, 6)
                          );
                 }
                 else
                 {
                     return View(db.Assets.Where(x => x.Employees.FirstName.StartsWith(search) || x.Employees.FirstName == search
-                    || x.Employees.LastName == search || x.Employees.LastName.StartsWith(search)).ToList());
+                    || x.Employees.LastName == search || x.Employees.LastName.StartsWith(search)).ToList().ToPagedList(page ?? 1, 6));
                 }
             
             

@@ -163,10 +163,20 @@ textarea {
 #search{
     background-color: #fff;
     border: inset 1px;
+    padding-left: 5px;
 }
 
 .asset_page{
 	padding-top: 60px;
 	text-align: center;
 	width: 100px;
+}
+
+/*PageList*/
+.pager{
+    margin-left: 10px;
+}
+
+a{
+    padding-right: 5px;
 }

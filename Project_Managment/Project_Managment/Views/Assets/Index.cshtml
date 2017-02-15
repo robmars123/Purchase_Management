@@ -1,4 +1,6 @@
-﻿@model IEnumerable<Project_Managment.Models.Asset>
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model IPagedList<Project_Managment.Models.Asset>
 @{
     ViewBag.Title = "Index";
 }
@@ -35,7 +37,7 @@
 
 
             <th>
-                @Html.DisplayNameFor(model => model.Make)
+                @Html.DisplayNameFor(model => model.First().Make)
             </th>
             <th>
                 Assigned User
@@ -69,8 +71,10 @@
             <tr>
                 <td>
                     @if (!string.IsNullOrEmpty(item.Make))
+
                 {
                         @Html.ActionLink(item.Make, "Details", new { id = item.AssetID })
+                        @Html.ActionLink(item.ModelNumber, "Details", new { id = item.AssetID })
                     }
                 </td>
                 <td>
@@ -97,4 +101,6 @@
         }
         
     </table>
+   
     </div>
+<div class="pager">@Html.PagedListPager(Model, page => Url.Action("Index", new { page, search = Request.QueryString["search"], option = Request.QueryString["option"] }))</div>
