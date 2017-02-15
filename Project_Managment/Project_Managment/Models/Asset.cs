@@ -15,6 +15,13 @@ namespace Project_Managment.Models
             Maintenances = new HashSet<Maintenance>();
           
         }
+
+        
+        
+
+
+
+
         [Key]
         public int AssetID { get; set; }
 

@@ -13,6 +13,7 @@ namespace Project_Managment.Controllers
     public class AssetsController : Controller
     {
         private AccessDbContext db = new AccessDbContext();
+        private bool x;
 
         public int? id { get; private set; }
 
@@ -27,33 +28,73 @@ namespace Project_Managment.Controllers
 
 
         // GET: Assets
-        public ActionResult Index()
+        public ActionResult Index(string option, string search)
         {
+            if (option == null )
+            {
+                var g = from s in db.Assets
+                        join sa in db.Employees on s.EmployeeID equals sa.EmployeeID
+                        where s.EmployeeID != null && sa.LastName != null
+                        select s;
 
+                return View(g);
+            }
+                 //Search Bar
+                //if a user choose the radio button option as Subject  
+               else if (option == "Make")
+                {
+                    //Index action method will return a view with a student records based on what a user specify the value in textbox  
+                    return View(db.Assets.Where(x => x.Make == search || x.Make.StartsWith(search)).ToList());
+                }
+                else if (option == "Department")
+                {
+                    return View
+                        (
+                        db.Assets.Where(x => x.Department.DepartmentName == search ||
+                    search == null || x.Department.DepartmentName.StartsWith(search)).ToList()
+                         );
+                }
+                else
+                {
+                    return View(db.Assets.Where(x => x.Employees.FirstName.StartsWith(search) || x.Employees.FirstName == search
+                    || x.Employees.LastName == search || x.Employees.LastName.StartsWith(search)).ToList());
+                }
+            
             
 
 
+            
+         
 
-            var courses = db.Assets.Include(c => c.Employees);
-            //filter out nulls.
-            var g = from s in db.Assets
-                    join sa in db.Employees on s.EmployeeID equals sa.EmployeeID
-                    where s.EmployeeID != null && sa.LastName != null
-                    select s;
 
-            return View(g);
+            // Search Bar End
 
 
 
+            //var courses = db.Assets.Include(c => c.Employees);
+            ////filter out nulls.
+
+            //  return View(db.Assets.ToList());
 
 
 
-          //  return View(courses.ToList());
+
+
+
+
+            //  return View(courses.ToList());
 
 
             // return View(db.Assets.ToList());
             // return View();
         }
+
+
+
+        //private ActionResult View(object p)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         private ActionResult View(List<Employee> list1, List<Asset> list2)
         {

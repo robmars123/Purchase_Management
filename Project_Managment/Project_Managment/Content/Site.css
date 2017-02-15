@@ -128,7 +128,7 @@ textarea {
 	width: 100%;
 	
 	padding-top: 10px;
-    text-align: center;
+	text-align: center;
 	height: 40px;
 }
 
@@ -151,4 +151,22 @@ textarea {
 
 .footer{
 	text-align: center;
+}
+
+/*SEARCH BAR*/
+
+.search_bar{
+	margin-left: 115px;
+    margin-bottom: 10px;
+}
+
+#search{
+    background-color: #fff;
+    border: inset 1px;
+}
+
+.asset_page{
+	padding-top: 60px;
+	text-align: center;
+	width: 100px;
 }
