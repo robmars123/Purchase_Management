@@ -164,6 +164,7 @@ textarea {
     background-color: #fff;
     border: inset 1px;
     padding-left: 5px;
+    font-style:italic;
 }
 
 .asset_page{

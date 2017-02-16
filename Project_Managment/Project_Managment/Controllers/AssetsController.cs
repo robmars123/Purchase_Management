@@ -32,6 +32,7 @@ namespace Project_Managment.Controllers
         // GET: Assets
         public ActionResult Index(string option, string search, int? page)
         {
+            //to filter nulls on Emploee.Lastname in all searches 
             if (option == null)
             {
                 var g = from s in db.Assets
