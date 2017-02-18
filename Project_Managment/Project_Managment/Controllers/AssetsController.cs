@@ -36,16 +36,13 @@ namespace Project_Managment.Controllers
             }
             //     //Search Bar
             //if a user choose the radio button option as Subject  
-            else if (option == "Serial_No")
+            else// if (option == "Serial_No")
             //  if (option == "Make")
             {
                 //Index action method will return a view with a student records based on what a user specify the value in textbox  
                 return View(db.Assets.Where(x => x.SerialNumber == search || x.SerialNumber.StartsWith(search)).ToList());
             }
-            else
-            {
-                return View();
-            }
+           
             //else if (option == "Service_Tag")
             //{
             //    return View
