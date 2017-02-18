@@ -73,7 +73,7 @@
                 <td>
                     @if (!string.IsNullOrEmpty(item.Make))
 
-                {
+                     {
                         @Html.ActionLink(item.Make, "Details", new { id = item.AssetID })
                         @Html.ActionLink(item.ModelNumber, "Details", new { id = item.AssetID })
                     }

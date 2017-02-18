@@ -1,0 +1,229 @@
+﻿
+@model IEnumerable<Project_Managment.Models.Asset>
+
+
+<div class="header">
+    <img class="header_logo" src="~/Images/Device.png" />
+    <h4>Device Details</h4>
+
+</div>
+<div class="search_bar">
+    @using (Html.BeginForm("Search", "Assets", FormMethod.Get))
+    {
+        //the following are search options
+        <b> Search Option: </b>@Html.RadioButton("option", "Service_Tag", true) <text>Service Tag</text>
+        @Html.RadioButton("option", "Serial_No") <text > Serial No. </text>
+        @Html.TextBox("search") <input class="search_box" type="submit"
+                                       name="submit"
+                                       value="Search" />
+    }
+</div>
+
+
+
+<div class="wrapper">
+
+
+    <div class="asset_create">
+        <div class="body_header">
+            Device Information
+        </div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Asset_Category.AssetCategory)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FirstOrDefault().Asset_Category.AssetCategory)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Department.DepartmentName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FirstOrDefault().Department.DepartmentName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().Employees.FirstName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FirstOrDefault().Employees.FirstName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().Status.Status1)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FirstOrDefault().Status.Status1)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Vendor.VendorName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FirstOrDefault().Vendor.VendorName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.AssetDescription)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FirstOrDefault().AssetDescription)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Make)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FirstOrDefault().Make)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ModelNumber)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FirstOrDefault().ModelNumber)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SerialNumber)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FirstOrDefault().SerialNumber)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DateAcquired)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FirstOrDefault().DateAcquired)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DateSold)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FirstOrDefault().DateSold)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PurchasePrice)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FirstOrDefault().PurchasePrice)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DepreciationMethod)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FirstOrDefault().DepreciationMethod)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DepreciableLife)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FirstOrDefault().DepreciableLife)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SalvageValue)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FirstOrDefault().SalvageValue)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CurrentValue)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FirstOrDefault().CurrentValue)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Comments)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FirstOrDefault().Comments)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FirstOrDefault().Description)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.NextSchedMaint)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FirstOrDefault().NextSchedMaint)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Processor)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FirstOrDefault().Processor)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.RAM)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FirstOrDefault().RAM)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Condition)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FirstOrDefault().Condition)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ComputerName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FirstOrDefault().ComputerName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SSMA_TimeStamp)
+            </dt>
+
+
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.FirstOrDefault().AssetID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</div>

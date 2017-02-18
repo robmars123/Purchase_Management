@@ -19,5 +19,11 @@ namespace Project_Managment.Models
 
         [StringLength(20)]
         public string OfficeLocation { get; set; }
+
+
+        //added DepartmentID here as foriegn key
+       // public int? DepartmentID { get; set; }
+
+        
     }
 }

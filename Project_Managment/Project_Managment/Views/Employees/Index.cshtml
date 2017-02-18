@@ -23,7 +23,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.OfficeLocation)
             </th>
-            <th></th>
+            <th>Department</th>
         </tr>
         @foreach (var item in Model)
         {
@@ -37,6 +37,7 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.OfficeLocation)
                 </td>
+                
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.EmployeeID }) |
                     @Html.ActionLink("Details", "Details", new { id = item.EmployeeID }) |

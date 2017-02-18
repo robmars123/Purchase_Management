@@ -17,6 +17,9 @@ namespace Project_Managment.Controllers
         // GET: Employees
         public ActionResult Index()
         {
+
+            //List<Employee> employees = db.Employees.Where(x => x.DepartmentID == id ).ToList();
+            //return View(employees);
             return View(db.Employees.ToList());
         }
 
