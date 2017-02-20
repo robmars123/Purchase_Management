@@ -164,6 +164,7 @@ namespace Project_Managment.Controllers
 
             return View(asset);
         }
+        [Authorize]
 
         // GET: Assets/Create
         public ActionResult Create()
@@ -174,6 +175,7 @@ namespace Project_Managment.Controllers
         // POST: Assets/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "AssetID,AssetDescription,EmployeeID,AssetCategoryID,StatusID,DepartmentID,VendorID,Make,ModelNumber,SerialNumber,DateAcquired,DateSold,PurchasePrice,DepreciationMethod,DepreciableLife,SalvageValue,CurrentValue,Comments,Description,NextSchedMaint,Processor,RAM,Condition,ComputerName,SSMA_TimeStamp")] Asset asset)
@@ -189,6 +191,8 @@ namespace Project_Managment.Controllers
         }
 
         // GET: Assets/Edit/5
+        [Authorize]
+
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -220,6 +224,8 @@ namespace Project_Managment.Controllers
         }
 
         // GET: Assets/Delete/5
+        [Authorize]
+
         public ActionResult Delete(int? id)
         {
             if (id == null)
