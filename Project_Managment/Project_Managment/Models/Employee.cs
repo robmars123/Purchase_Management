@@ -8,8 +8,12 @@ namespace Project_Managment.Models
 
     public partial class Employee
     {
+
+        public Employee() { }
         [Key]
         public int EmployeeID { get; set; }
+
+
 
         [StringLength(50)]
         public string FirstName { get; set; }
@@ -21,9 +25,9 @@ namespace Project_Managment.Models
         public string OfficeLocation { get; set; }
 
 
-        //added DepartmentID here as foriegn key
-       // public int? DepartmentID { get; set; }
+       // public string DepartmentName { get; set; }
 
-        
+        public virtual Department Department { get; set; }
+
     }
 }

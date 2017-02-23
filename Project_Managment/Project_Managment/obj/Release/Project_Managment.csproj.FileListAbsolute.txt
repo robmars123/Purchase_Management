@@ -323,14 +323,17 @@ C:\Users\robmars\Desktop\Purchase_Management\Purchase_Management\Project_Managme
 C:\Users\robmars\Desktop\Purchase_Management\Purchase_Management\Project_Managment\Project_Managment\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\robmars\Desktop\Purchase_Management\Purchase_Management\Project_Managment\Project_Managment\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\robmars\Desktop\Purchase_Management\Purchase_Management\Project_Managment\Project_Managment\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\robmars\Desktop\Purchase_Management\Purchase_Management\Project_Managment\Project_Managment\obj\Release\Project_Managment.csprojResolveAssemblyReference.cache
 C:\Users\robmars\Desktop\Purchase_Management\Purchase_Management\Project_Managment\Project_Managment\obj\Release\Project_Managment.dll
 C:\Users\robmars\Desktop\Purchase_Management\Purchase_Management\Project_Managment\Project_Managment\obj\Release\Project_Managment.pdb
 C:\Users\robmars\Desktop\Purchase_Management\Purchase_Management\Project_Managment\Project_Managment\bin\PagedList.dll
 C:\Users\robmars\Desktop\Purchase_Management\Purchase_Management\Project_Managment\Project_Managment\bin\PagedList.Mvc.dll
 C:\Users\robmars\Desktop\Purchase_Management\Purchase_Management\Project_Managment\Project_Managment\bin\PagedList.xml
 C:\Users\robmars\Desktop\Purchase_Management\Purchase_Management\Project_Managment\Project_Managment\bin\PagedList.Mvc.xml
+<<<<<<< HEAD
 C:\purchase management\Purchase_Management\Project_Managment\Project_Managment\bin\PagedList.dll
 C:\purchase management\Purchase_Management\Project_Managment\Project_Managment\bin\PagedList.Mvc.dll
 C:\purchase management\Purchase_Management\Project_Managment\Project_Managment\bin\PagedList.xml
 C:\purchase management\Purchase_Management\Project_Managment\Project_Managment\bin\PagedList.Mvc.xml
+=======
+C:\Users\robmars\Desktop\Purchase_Management\Purchase_Management\Project_Managment\Project_Managment\obj\Release\Project_Managment.csprojResolveAssemblyReference.cache
+>>>>>>> origin/master

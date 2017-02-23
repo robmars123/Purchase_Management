@@ -21,7 +21,12 @@ namespace Project_Managment.Models
        // [StringLength(50)]
         public string LastName { get; set; }
 
-       // [StringLength(20)]
+        internal object GetRoles()
+        {
+            throw new NotImplementedException();
+        }
+
+        // [StringLength(20)]
         public string OfficeLocation { get; set; }
         //[Key]
         public int AssetID { get; set; }
@@ -104,7 +109,10 @@ namespace Project_Managment.Models
         public virtual DbSet<Status> Status { get; set; }
         public virtual DbSet<Vendor> Vendors { get; set; }
 
-
+        internal object Entry(Employee employee, Department department)
+        {
+            throw new NotImplementedException();
+        }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

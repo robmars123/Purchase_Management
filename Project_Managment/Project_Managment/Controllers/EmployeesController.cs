@@ -14,13 +14,36 @@ namespace Project_Managment.Controllers
     {
         private AccessDbContext db = new AccessDbContext();
 
+
+        public ActionResult Dropdown()
+        {
+
+            var g = from s in db.Assets
+                    join sa in db.Employees on s.EmployeeID equals sa.EmployeeID
+                    where s.EmployeeID != null && sa.LastName != null
+                    select s;
+
+            SelectList list = new SelectList(g, "Departments");
+            ViewBag.Roles = list;
+            return View(list);
+        }
+    
+
         // GET: Employees
         public ActionResult Index()
         {
 
             //List<Employee> employees = db.Employees.Where(x => x.DepartmentID == id ).ToList();
             //return View(employees);
-            return View(db.Employees.ToList());
+
+            //var g = from s in db.Employees
+            //        join sa in db.Departments on s.EmployeeID equals sa.Employees.EmployeeID
+            //        where s.LastName != null
+            //        select s;
+
+            //return View(g.ToList());
+
+           return View(db.Employees.ToList());
         }
 
         // GET: Employees/Details/5
@@ -85,7 +108,7 @@ namespace Project_Managment.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "EmployeeID,FirstName,LastName,OfficeLocation")] Employee employee)
+        public ActionResult Edit([Bind(Include = "EmployeeID,FirstName,LastName,OfficeLocation,DepartmentName")] Employee employee)
         {
             if (ModelState.IsValid)
             {

@@ -30,6 +30,15 @@
         </div>
         <hr />
         <dl class="dl-horizontal">
+
+
+            @if (Model.Count() == 0)
+            {
+                <dt class="asset_page">
+                   No records found.
+                </dt>
+            }
+
             <dt>
                 @Html.DisplayNameFor(model => model.Asset_Category.AssetCategory)
             </dt>
