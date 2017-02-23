@@ -133,7 +133,7 @@ textarea {
 }
 
 .columns th{
-	width: 10%;
+	width: 5%;
 	
 }
 
@@ -180,4 +180,9 @@ textarea {
 
 a{
     padding-right: 5px;
+}
+
+
+.modify-record{
+    width: 90px;
 }
