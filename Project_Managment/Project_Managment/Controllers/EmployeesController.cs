@@ -10,6 +10,7 @@ using Project_Managment.Models;
 
 namespace Project_Managment.Controllers
 {
+    [Authorize]
     public class EmployeesController : Controller
     {
         private AccessDbContext db = new AccessDbContext();

@@ -12,6 +12,7 @@ using PagedList.Mvc;
 
 namespace Project_Managment.Controllers
 {
+    [Authorize]
     public class AssetsController : Controller
     {
         private AccessDbContext db = new AccessDbContext();

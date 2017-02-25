@@ -329,14 +329,8 @@ C:\Users\robmars\Desktop\Purchase_Management\Purchase_Management\Project_Managme
 C:\Users\robmars\Desktop\Purchase_Management\Purchase_Management\Project_Managment\Project_Managment\bin\PagedList.Mvc.dll
 C:\Users\robmars\Desktop\Purchase_Management\Purchase_Management\Project_Managment\Project_Managment\bin\PagedList.xml
 C:\Users\robmars\Desktop\Purchase_Management\Purchase_Management\Project_Managment\Project_Managment\bin\PagedList.Mvc.xml
-<<<<<<< HEAD
-<<<<<<< HEAD
 C:\purchase management\Purchase_Management\Project_Managment\Project_Managment\bin\PagedList.dll
 C:\purchase management\Purchase_Management\Project_Managment\Project_Managment\bin\PagedList.Mvc.dll
 C:\purchase management\Purchase_Management\Project_Managment\Project_Managment\bin\PagedList.xml
 C:\purchase management\Purchase_Management\Project_Managment\Project_Managment\bin\PagedList.Mvc.xml
-=======
 C:\Users\robmars\Desktop\Purchase_Management\Purchase_Management\Project_Managment\Project_Managment\obj\Release\Project_Managment.csprojResolveAssemblyReference.cache
->>>>>>> origin/master
-=======
->>>>>>> parent of 6148529... Added about page, home page, restricted access to certain pages
