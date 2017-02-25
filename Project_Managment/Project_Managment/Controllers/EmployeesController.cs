@@ -62,8 +62,6 @@ namespace Project_Managment.Controllers
         }
 
         // GET: Employees/Create
-        [Authorize]
-
         public ActionResult Create()
         {
             return View();
@@ -87,8 +85,6 @@ namespace Project_Managment.Controllers
         }
 
         // GET: Employees/Edit/5
-        [Authorize]
-
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -120,8 +116,6 @@ namespace Project_Managment.Controllers
         }
 
         // GET: Employees/Delete/5
-        [Authorize]
-
         public ActionResult Delete(int? id)
         {
             if (id == null)
