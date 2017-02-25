@@ -1469,6 +1469,21 @@ dd {
     margin-left: 180px;
   }
 }
+table.details-table, tbody.details-table {
+    display: block;
+}
+
+tr.details-table {
+    display: inline-block;
+    width: 30%;
+}
+
+td.details-table {
+    display: inline-block;
+}
+td.details-table1, th.details-table1 {
+    display: inline-block;
+}
 abbr[title],
 abbr[data-original-title] {
   cursor: help;
