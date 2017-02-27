@@ -3,15 +3,36 @@
 }
 
 <div class="jumbotron">
-      <h2> JCCC CIS 264 Project </h2>
+
+    <div class="home-box">
+        <div id="container">
+            <div id="left">
+                <a href="@Url.Action("Index", "Assets")">
+                    <img src="~/Images/assets.png" />
+                    </a>
+                    <div class="asset_title">
+                        @Html.ActionLink("Assets", "Index", "Assets")
+                    </div>
+</div>
+            <div id="center">
+                <a href="@Url.Action("Index", "Employees")">
+                    <img src="~/Images/emp.png" />
+                    </a>
+                    <div class="employee_title">
+                        @Html.ActionLink("Employees", "Index", "Assets")
+                    </div>
+
+</div>
+            <div id="right">
+                <img class="settings" src="~/Images/settings.png" />
+                <div class="Settings_title">Settings</div>
+            </div>
+        </div>
+
+
+    </div>
+
 
 </div>
 
- <p>
-        This is a semester project done by Robinson Majorenos, John Omariba, Danny Ortiz
-    
-</p>
- <p>
-        This is a Purchase order enhancement system for Catholic Charities.
-    
-</p>
+
