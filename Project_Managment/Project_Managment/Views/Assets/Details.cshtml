@@ -31,7 +31,7 @@
         </div>
         
 
-        <div style="width: 40%; float:left">
+        <div class="details" style="width: 40%; float:left">
             <dl class="dl-horizontal">
 
 
@@ -172,13 +172,15 @@
 
             </dl>
             </div>
-        <div style="width: 60%; float:right">
-            <dl class="dl-horizontal">
-                <dt>@Html.DisplayNameFor(model => model.Comments)</dt>
-                <dd>@Html.DisplayFor(model => model.Comments)</dd>
-            </dl>
-        </div>
+        
+        <div class="comments" style="width: 60%; float:right">
+            <div class="comment-title">@Html.DisplayNameFor(model => model.Comments)</div>
 
+            <div class="comment-body">@Html.DisplayFor(model => model.Comments)</div>
+
+
+
+        </div>
 
         <div style="width: 40%; float: none">
             <p>
