@@ -32,7 +32,7 @@ textarea {
 	width: 80%;
 	margin: auto;
 	padding-bottom: 30px;
-
+	
 
 
 
@@ -273,9 +273,9 @@ background-color: #ffffff;
 	height: 50%;
 	text-align:center;        
 	margin:0 auto;
-    border-color: #b8b8b8;
-    border: 1px solid;
-    padding-left: 10%;
+	border-color: #b8b8b8;
+	border: 1px solid;
+	padding-left: 10%;
 }
 
 #left {
@@ -316,24 +316,24 @@ background-color: #ffffff;
 .settings{
 	margin-top: 35%;
 	width: 105%;
-    margin-left: -190%;
+	margin-left: -190%;
 
 }
 
 .size-image{
-    width: 90%;
-    height: 50%;
+	width: 90%;
+	height: 50%;
 }
 
 .size-asset{
-    width: 115%;
-    margin-left: 90%;
-    margin-top: 25%;
+	width: 115%;
+	margin-left: 90%;
+	margin-top: 25%;
 }
 .Settings_title{
 	 width: 110%;
 	margin-top: -5%;
-    margin-left: -100%;
+	margin-left: -100%;
 }
 
 
