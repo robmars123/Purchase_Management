@@ -5,13 +5,14 @@
 <div class="header">
     <img class="header_logo" src="~/Images/Device.png" />
     <h4>Add New Device</h4>
-    
+
 </div>
 <div class="wrapper">
 
     <div class="asset_create">
         @using (Html.BeginForm())
         {
+            @*@Html.ValidationSummary()*@
             @Html.AntiForgeryToken()
 
             <div class="form-horizontal">
@@ -26,17 +27,20 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    @Html.LabelFor(model => model.EmployeeID, htmlAttributes: new { @class = "control-label col-md-2" })
+                   @Html.LabelFor(model => model.Employees.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
+                    
                     <div class="col-md-10">
                         @Html.EditorFor(model => model.EmployeeID, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.EmployeeID, "", new { @class = "text-danger" })
                     </div>
                 </div>
                 <div class="form-group">
-                    @Html.LabelFor(model => model.AssetCategoryID, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="control-label col-md-2">
+                        Asset Category:
+                    </div>
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.AssetCategoryID, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.AssetCategoryID, "", new { @class = "text-danger" })
+                        @Html.EditorFor(model => model.AssetDescription, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.AssetDescription, "", new { @class = "text-danger" })
                     </div>
                 </div>
                 <div class="form-group">

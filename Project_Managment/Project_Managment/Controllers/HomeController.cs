@@ -32,5 +32,10 @@ namespace Project_Managment.Controllers
 
             return View();
         }
+        [HttpPost]
+        public ActionResult Action()
+        {
+            return View();
+        }
     }
 }

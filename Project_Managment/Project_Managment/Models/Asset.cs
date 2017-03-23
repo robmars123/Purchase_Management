@@ -22,37 +22,48 @@ namespace Project_Managment.Models
 
 
 
+
+
         [Key]
         public int AssetID { get; set; }
 
         [StringLength(255)]
         public string AssetDescription { get; set; }
-        
+
+        [Required(ErrorMessage ="please enter the employeeID" )]
+        [RegularExpression("[0-9]", ErrorMessage ="please enter a valid EmployeeID number")]
         public int? EmployeeID { get; set; }
 
         public int? AssetCategoryID { get; set; }
-
+        
+        [Required(ErrorMessage ="please enter or select the status ID")]
         public int? StatusID { get; set; }
 
+        [Required(ErrorMessage ="please enter the departmentID")]
         public int? DepartmentID { get; set; }
 
+        [Required(ErrorMessage = "please enter the vendor ID")]
         public int? VendorID { get; set; }
 
+        [Required(ErrorMessage ="please enter the make")]
         [StringLength(50)]
         public string Make { get; set; }
 
         [StringLength(50)]
         public string ModelNumber { get; set; }
 
+        [Required(ErrorMessage = "please enter the serial number ")]
         [StringLength(50)]
         public string SerialNumber { get; set; }
 
+        [Required(ErrorMessage = "please enter the date acquired ")]
         [Column(TypeName = "datetime2")]
         public DateTime? DateAcquired { get; set; }
 
         [Column(TypeName = "datetime2")]
         public DateTime? DateSold { get; set; }
 
+        [Required(ErrorMessage = "please enter the purchase price")]
         [Column(TypeName = "money")]
         public decimal? PurchasePrice { get; set; }
 
@@ -81,9 +92,11 @@ namespace Project_Managment.Models
         [StringLength(255)]
         public string RAM { get; set; }
 
+        [Required(ErrorMessage = "please enter the asset condition")]
         [StringLength(255)]
         public string Condition { get; set; }
 
+        [Required(ErrorMessage = "please enter the computer name")]
         [StringLength(255)]
         public string ComputerName { get; set; }
 
