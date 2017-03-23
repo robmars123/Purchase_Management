@@ -35,13 +35,15 @@
 
         <tr class="columns">
 
-
+            <th>
+               Computer Name
+            </th>
 
             <th>
                 @Html.DisplayNameFor(model => model.First().Make)
             </th>
             <th>
-                Assigned User
+               Current Assigned User
 
             </th>
             <th>
@@ -70,13 +72,21 @@
        @foreach (var item in Model)
         {
             <tr>
+
                 <td>
                     @if (!string.IsNullOrEmpty(item.Make))
 
-                     {
-                        @Html.ActionLink(item.Make, "Details", new { id = item.AssetID })
-                        @Html.ActionLink(item.ModelNumber, "Details", new { id = item.AssetID })
+                        {
+                            @Html.ActionLink(item.ComputerName, "Details", new { id = item.AssetID })
                     }
+
+                </td>
+                <td>
+                   
+                        @Html.DisplayFor(modelItem => item.Make)
+                        
+                        @Html.DisplayFor(modelItem => item.ModelNumber)
+                
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Employees.FirstName)

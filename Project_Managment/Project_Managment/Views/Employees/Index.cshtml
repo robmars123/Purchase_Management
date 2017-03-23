@@ -9,6 +9,13 @@
         @Html.ActionLink("Add Employee", "Create")
     </div>
 </div>
+<style>
+    .hideextra {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+</style>
 <div class="wrapper">
     <table class="table">
 
@@ -26,13 +33,14 @@
                 @Html.DisplayNameFor(model => model.OfficeLocation)
             </th>
             <th>Department</th>
-            <th>Action           </th>
+            <th>Action</th>
         </tr>
         @foreach (var item in Model)
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.EmployeeID)
+
+                        @Html.DisplayFor(modelItem => item.EmployeeID)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.FirstName)
@@ -44,14 +52,18 @@
                     @Html.DisplayFor(modelItem => item.OfficeLocation)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Department.DepartmentName)
+                    <div class="hideextra" style="width:200px">
+                        @Html.DisplayFor(modelItem => item.Department.DepartmentName)
+                        </div>
                 </td>
                
                 <td class="modify-record">
-                    @Html.ActionLink("Edit", "Edit", new { id = item.EmployeeID }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.EmployeeID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.EmployeeID })
-                </td>
+                    <div class="hideextra" style="width:200px">
+                        @Html.ActionLink("Edit", "Edit", new { id = item.EmployeeID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.EmployeeID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.EmployeeID })
+                        </div>
+</td>
 
 
             </tr>
