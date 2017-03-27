@@ -30,19 +30,24 @@ namespace Project_Managment.Models
         [StringLength(255)]
         public string AssetDescription { get; set; }
 
-        [Required(ErrorMessage ="please enter the employeeID" )]
-        [RegularExpression("[0-9]", ErrorMessage ="please enter a valid EmployeeID number")]
         public int? EmployeeID { get; set; }
+
+        [Required(ErrorMessage ="please enter the employee First Name" )]
+        public int? FirstName { get; set; }
+
+        [Required(ErrorMessage ="please enter employee Last name" )]
+        public int? LastName { get; set; }
+
 
         public int? AssetCategoryID { get; set; }
         
-        [Required(ErrorMessage ="please enter or select the status ID")]
+        //[Required(ErrorMessage ="please enter or select the status ID")]
         public int? StatusID { get; set; }
 
-        [Required(ErrorMessage ="please enter the departmentID")]
+        //[Required(ErrorMessage ="please enter the departmentID")]
         public int? DepartmentID { get; set; }
 
-        [Required(ErrorMessage = "please enter the vendor ID")]
+        //[Required(ErrorMessage = "please enter the vendor ID")]
         public int? VendorID { get; set; }
 
         [Required(ErrorMessage ="please enter the make")]
