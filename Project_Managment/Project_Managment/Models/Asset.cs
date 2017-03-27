@@ -105,8 +105,8 @@ namespace Project_Managment.Models
         [Timestamp]
         public byte[] SSMA_TimeStamp { get; set; }
 
-
-
+       
+       
 
 
 
@@ -130,5 +130,9 @@ namespace Project_Managment.Models
         public virtual Department Department { get; set; }
         //Vendor
         public virtual Vendor Vendor { get; set; }
+
+        //Managers
+      //  [ForeignKey("ManagerId")]
+        public virtual Manager Manager { get; set; }
     }
 }

@@ -333,7 +333,6 @@ C:\purchase management\Purchase_Management\Project_Managment\Project_Managment\b
 C:\purchase management\Purchase_Management\Project_Managment\Project_Managment\bin\PagedList.Mvc.dll
 C:\purchase management\Purchase_Management\Project_Managment\Project_Managment\bin\PagedList.xml
 C:\purchase management\Purchase_Management\Project_Managment\Project_Managment\bin\PagedList.Mvc.xml
-C:\Users\robmars\Desktop\Purchase_Management\Purchase_Management\Project_Managment\Project_Managment\obj\Release\Project_Managment.csprojResolveAssemblyReference.cache
 C:\Users\mainama\Desktop\Purchase_Management\Project_Managment\Project_Managment\bin\ApplicationInsights.config
 C:\Users\mainama\Desktop\Purchase_Management\Project_Managment\Project_Managment\bin\roslyn\csc.exe
 C:\Users\mainama\Desktop\Purchase_Management\Project_Managment\Project_Managment\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll

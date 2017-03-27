@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Project_Managment.Models.Manager>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Asset.AssetDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Employees.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PromotionDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AssetID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmployeeID)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Asset.AssetDescription)
+        </td>
+        <td>
+            @Html.ActionLink(item.Employees.FirstName, "Details", "Employees", new { id = item.EmployeeID }, null)
+            @Html.ActionLink(item.Employees.LastName, "Details", "Employees", new { id = item.EmployeeID }, null)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PromotionDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AssetID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmployeeID)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ManagerId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ManagerId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ManagerId })
+        </td>
+    </tr>
+}
+
+</table>

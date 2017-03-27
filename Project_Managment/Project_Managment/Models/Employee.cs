@@ -10,7 +10,8 @@ namespace Project_Managment.Models
     {
 
         public Employee() { }
-        [Key]
+      //  [Key, ForeignKey("Manager")] //FK for Manager Table
+      [Key]
         public int EmployeeID { get; set; }
 
 
@@ -24,10 +25,9 @@ namespace Project_Managment.Models
         [StringLength(20)]
         public string OfficeLocation { get; set; }
 
-
-       // public string DepartmentName { get; set; }
-
         public virtual Department Department { get; set; }
+
+     
 
     }
 }

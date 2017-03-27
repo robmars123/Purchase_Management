@@ -1,38 +1,39 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-
 <div class="jumbotron">
-
     <div class="home-box">
-        <div id="container">
-            <div id="left">
-                <a href="@Url.Action("Index", "Assets")">
-                    <img class="size-asset" src="~/Images/assets.png" />
-                    </a>
-                    <div class="asset_title">
-                        @Html.ActionLink("Assets", "Index", "Assets")
-                    </div>
-</div>
-            <div id="center">
-                <a href="@Url.Action("Index", "Employees")">
-                    <img class="size-image" src="~/Images/emp.png" />
-                    </a>
-                    <div class="employee_title">
-                        @Html.ActionLink("Employees", "Index", "Assets")
-                    </div>
+        <div class="bottom">
+            <div class="col">
+                <a href="@Url.Action("Index", "Managers")">
+                    <img class="size-image" src="~/Images/manager.png" />
+                </a>
 
-</div>
-            <div id="right">
-                <img class="settings" src="~/Images/settings.png" />
-                <div class="Settings_title">Settings</div>
+                @Html.ActionLink("Managers", "Index", "Managers")
+            </div>
+            <div class="col">
+
+                <a href="@Url.Action("Index", "Assets")">
+                    <img class="size-image" src="~/Images/asset2.png" />
+                </a>
+                @Html.ActionLink("Assets", "Index", "Assets")
+            </div>
+            <div class="col">
+
+                <a href="@Url.Action("Index", "Employees")">
+                    <img class="size-image" src="~/Images/workers.png" />
+                </a>
+                @Html.ActionLink("Employees", "Index", "Assets")
+            </div>
+            <div class="col2">
+
+                <a href="@Url.Action("Index", "Employees")">
+                    <img class="size-image" src="~/Images/settings.png" />
+                </a>
+                Settings
             </div>
         </div>
-
-
     </div>
-
-
 </div>
 
 
