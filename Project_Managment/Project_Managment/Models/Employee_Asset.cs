@@ -14,8 +14,11 @@ namespace Project_Managment.Models
 
         [StringLength(255)]
         public string AssetDescription { get; set; }
-        
-        public int? EmployeeID { get; set; }
+
+        int? EmployeeID { get; set; }
+        public string EmployeeFirstName {get; set;}
+        public string EmployeeLastName { get; set; }
+
 
         public int? AssetCategoryID { get; set; }
 
