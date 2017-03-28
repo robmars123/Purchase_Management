@@ -32,12 +32,12 @@ namespace Project_Managment.Models
 
         public int? EmployeeID { get; set; }
 
-     /*   [Required(ErrorMessage ="please enter the employee First Name" )]
+        [Required(ErrorMessage ="please enter the employee First Name" )]
         public int? FirstName { get; set; }
 
         [Required(ErrorMessage ="please enter employee Last name" )]
         public int? LastName { get; set; }
-*/
+
 
         public int? AssetCategoryID { get; set; }
         
