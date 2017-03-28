@@ -96,40 +96,6 @@ C:\purchase management\Purchase_Management\Project_Managment\Project_Managment\b
 C:\purchase management\Purchase_Management\Project_Managment\Project_Managment\bin\Project_Managment.dll.config
 C:\purchase management\Purchase_Management\Project_Managment\Project_Managment\bin\Project_Managment.dll
 C:\purchase management\Purchase_Management\Project_Managment\Project_Managment\bin\Project_Managment.pdb
-C:\purchase management\Purchase_Management\Project_Managment\Project_Managment\bin\Antlr3.Runtime.dll
-C:\purchase management\Purchase_Management\Project_Managment\Project_Managment\bin\EntityFramework.dll
-C:\purchase management\Purchase_Management\Project_Managment\Project_Managment\bin\EntityFramework.SqlServer.dll
-C:\purchase management\Purchase_Management\Project_Managment\Project_Managment\bin\Microsoft.AI.Agent.Intercept.dll
-C:\purchase management\Purchase_Management\Project_Managment\Project_Managment\bin\Microsoft.AI.DependencyCollector.dll
-C:\purchase management\Purchase_Management\Project_Managment\Project_Managment\bin\Microsoft.AI.PerfCounterCollector.dll
-C:\purchase management\Purchase_Management\Project_Managment\Project_Managment\bin\Microsoft.AI.ServerTelemetryChannel.dll
-C:\purchase management\Purchase_Management\Project_Managment\Project_Managment\bin\Microsoft.AI.Web.dll
-C:\purchase management\Purchase_Management\Project_Managment\Project_Managment\bin\Microsoft.AI.WindowsServer.dll
-C:\purchase management\Purchase_Management\Project_Managment\Project_Managment\bin\Microsoft.ApplicationInsights.dll
-C:\purchase management\Purchase_Management\Project_Managment\Project_Managment\bin\Microsoft.AspNet.Identity.Core.dll
-C:\purchase management\Purchase_Management\Project_Managment\Project_Managment\bin\Microsoft.AspNet.Identity.EntityFramework.dll
-C:\purchase management\Purchase_Management\Project_Managment\Project_Managment\bin\Microsoft.AspNet.Identity.Owin.dll
-C:\purchase management\Purchase_Management\Project_Managment\Project_Managment\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-C:\purchase management\Purchase_Management\Project_Managment\Project_Managment\bin\Microsoft.Owin.dll
-C:\purchase management\Purchase_Management\Project_Managment\Project_Managment\bin\Microsoft.Owin.Host.SystemWeb.dll
-C:\purchase management\Purchase_Management\Project_Managment\Project_Managment\bin\Microsoft.Owin.Security.Cookies.dll
-C:\purchase management\Purchase_Management\Project_Managment\Project_Managment\bin\Microsoft.Owin.Security.dll
-C:\purchase management\Purchase_Management\Project_Managment\Project_Managment\bin\Microsoft.Owin.Security.Facebook.dll
-C:\purchase management\Purchase_Management\Project_Managment\Project_Managment\bin\Microsoft.Owin.Security.Google.dll
-C:\purchase management\Purchase_Management\Project_Managment\Project_Managment\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
-C:\purchase management\Purchase_Management\Project_Managment\Project_Managment\bin\Microsoft.Owin.Security.OAuth.dll
-C:\purchase management\Purchase_Management\Project_Managment\Project_Managment\bin\Microsoft.Owin.Security.Twitter.dll
-C:\purchase management\Purchase_Management\Project_Managment\Project_Managment\bin\Microsoft.Web.Infrastructure.dll
-C:\purchase management\Purchase_Management\Project_Managment\Project_Managment\bin\Newtonsoft.Json.dll
-C:\purchase management\Purchase_Management\Project_Managment\Project_Managment\bin\Owin.dll
-C:\purchase management\Purchase_Management\Project_Managment\Project_Managment\bin\System.Web.Helpers.dll
-C:\purchase management\Purchase_Management\Project_Managment\Project_Managment\bin\System.Web.Mvc.dll
-C:\purchase management\Purchase_Management\Project_Managment\Project_Managment\bin\System.Web.Optimization.dll
-C:\purchase management\Purchase_Management\Project_Managment\Project_Managment\bin\System.Web.Razor.dll
-C:\purchase management\Purchase_Management\Project_Managment\Project_Managment\bin\System.Web.WebPages.Deployment.dll
-C:\purchase management\Purchase_Management\Project_Managment\Project_Managment\bin\System.Web.WebPages.dll
-C:\purchase management\Purchase_Management\Project_Managment\Project_Managment\bin\System.Web.WebPages.Razor.dll
-C:\purchase management\Purchase_Management\Project_Managment\Project_Managment\bin\WebGrease.dll
 C:\purchase management\Purchase_Management\Project_Managment\Project_Managment\bin\Microsoft.AI.DependencyCollector.xml
 C:\purchase management\Purchase_Management\Project_Managment\Project_Managment\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\purchase management\Purchase_Management\Project_Managment\Project_Managment\bin\Microsoft.AI.Web.xml
@@ -330,3 +296,8 @@ C:\Users\robmars\Desktop\Purchase_Management\Purchase_Management\Project_Managme
 C:\Users\robmars\Desktop\Purchase_Management\Purchase_Management\Project_Managment\Project_Managment\obj\Debug\Project_Managment.dll
 C:\Users\robmars\Desktop\Purchase_Management\Purchase_Management\Project_Managment\Project_Managment\obj\Debug\Project_Managment.pdb
 C:\Users\robmars\Desktop\Purchase_Management\Purchase_Management\Project_Managment\Project_Managment\obj\Debug\Project_Managment.csprojResolveAssemblyReference.cache
+C:\purchase management\Purchase_Management\Project_Managment\Project_Managment\bin\Dapper.xml
+C:\purchase management\Purchase_Management\Project_Managment\Project_Managment\bin\PagedList.xml
+C:\purchase management\Purchase_Management\Project_Managment\Project_Managment\bin\PagedList.Mvc.xml
+C:\purchase management\Purchase_Management\Project_Managment\Project_Managment\obj\Debug\Project_Managment.Migrations.InitialCreate.resources
+C:\purchase management\Purchase_Management\Project_Managment\Project_Managment\obj\Debug\Project_Managment.csproj.GenerateResource.Cache
