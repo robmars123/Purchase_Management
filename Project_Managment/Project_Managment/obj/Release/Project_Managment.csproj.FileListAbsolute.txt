@@ -506,3 +506,5 @@ C:\Users\mainama\Desktop\notuse\Project_Managment\Project_Managment\bin\Microsof
 C:\Users\mainama\Desktop\notuse\Project_Managment\Project_Managment\obj\Release\Project_Managment.csprojResolveAssemblyReference.cache
 C:\Users\mainama\Desktop\notuse\Project_Managment\Project_Managment\obj\Release\Project_Managment.dll
 C:\Users\mainama\Desktop\notuse\Project_Managment\Project_Managment\obj\Release\Project_Managment.pdb
+C:\Users\mainama\Desktop\notuse\Project_Managment\Project_Managment\bin\Dapper.dll
+C:\Users\mainama\Desktop\notuse\Project_Managment\Project_Managment\bin\Dapper.xml
