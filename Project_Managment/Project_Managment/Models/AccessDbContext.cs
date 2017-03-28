@@ -4,15 +4,24 @@ namespace Project_Managment.Models
     using System.Data.Entity;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
+    using Models;
+    using System.Data.Entity.ModelConfiguration.Conventions;
 
     public partial class AccessDbContext : DbContext
     {
+        //internal object Manager;
+
         public AccessDbContext()
             : base("name=AccessDbContext")
         {
         }
 
-       // [Key]
+        public int ManagerId { get; set; }
+
+
+        public DateTime? PromotionDate { get; set; }
+
+        // [Key]
         public int EmployeeID { get; set; }
 
        // [StringLength(50)]
@@ -46,6 +55,9 @@ namespace Project_Managment.Models
 
        // [StringLength(50)]
         public string Make { get; set; }
+
+
+        
 
         //[StringLength(50)]
         public string ModelNumber { get; set; }
@@ -108,14 +120,18 @@ namespace Project_Managment.Models
         public virtual DbSet<Report> Reports { get; set; }
         public virtual DbSet<Status> Status { get; set; }
         public virtual DbSet<Vendor> Vendors { get; set; }
+        public virtual DbSet<Manager> Managers { get; set; }
 
         internal object Entry(Employee employee, Department department)
         {
             throw new NotImplementedException();
         }
 
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            //modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+
             modelBuilder.Entity<Asset>()
                 .Property(e => e.DateAcquired)
                 .HasPrecision(0);
@@ -174,5 +190,7 @@ namespace Project_Managment.Models
                 .Property(e => e.SSMA_TimeStamp)
                 .IsFixedLength();
         }
+
+       // public System.Data.Entity.DbSet<Project_Managment.Models.Managers> Managers { get; set; }
     }
 }
