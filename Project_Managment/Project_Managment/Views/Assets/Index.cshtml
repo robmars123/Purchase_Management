@@ -36,11 +36,13 @@
         <tr class="columns">
 
             <th>
-               Computer Name
+             
+                @Html.DisplayNameFor(model => model.First().ComputerName)
             </th>
 
             <th>
-                @Html.DisplayNameFor(model => model.First().Make)
+                Make
+                @*@Html.DisplayNameFor(model => model.First().Make)*@
             </th>
             <th>
                Current Assigned User
@@ -74,7 +76,7 @@
             <tr>
 
                 <td>
-                    @if (!string.IsNullOrEmpty(item.Make))
+                    @if (!string.IsNullOrEmpty(item.ComputerName))
 
                         {
                             @Html.ActionLink(item.ComputerName, "Details", new { id = item.AssetID })

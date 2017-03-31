@@ -15,13 +15,15 @@ namespace Project_Managment.Models
         public int EmployeeID { get; set; }
 
 
-
+        [Required (ErrorMessage = "Please enter employees' first name" )]
         [StringLength(50)]
         public string FirstName { get; set; }
 
+        [Required (ErrorMessage = "Please enter employees' last name")]
         [StringLength(50)]
         public string LastName { get; set; }
 
+        //[Required(ErrorMessage = "Please enter the office location ")]
         [StringLength(20)]
         public string OfficeLocation { get; set; }
 

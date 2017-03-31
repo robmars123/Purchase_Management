@@ -48,7 +48,7 @@ namespace Project_Managment.Controllers
                 //Index action method will return a view with a student records based on what a user specify the value in textbox  
                 return View(db.Assets.Where(x => x.SerialNumber == search || x.SerialNumber.StartsWith(search)).ToList());
             }
-           
+
             //else if (option == "Service_Tag")
             //{
             //    return View
@@ -90,31 +90,28 @@ namespace Project_Managment.Controllers
             }
             //     //Search Bar
             //if a user choose the radio button option as Subject  
-             else if (option == "Make")
-          //  if (option == "Make")
+            else if (option == "Make")
+            //  if (option == "Make")
             {
-                    //Index action method will return a view with a student records based on what a user specify the value in textbox  
-                    return View(db.Assets.Where(x => x.Make == search || x.Make.StartsWith(search) && x.Employees.LastName != null).ToList().ToPagedList( page ?? 1, 6));
-                }
-                else if (option == "Department")
-                {
-                    return View
-                        (
-                        db.Assets.Where(x => x.Department.DepartmentName == search ||
-                    search == null || x.Department.DepartmentName.StartsWith(search)).ToList().ToPagedList(page ?? 1, 6)
-                         );
-                }
-                else
-                {
-                    return View(db.Assets.Where(x => x.Employees.FirstName.StartsWith(search) || x.Employees.FirstName == search
-                    || x.Employees.LastName == search || x.Employees.LastName.StartsWith(search)).ToList().ToPagedList(page ?? 1, 6));
-                }
-            
-            
+                //Index action method will return a view with a student records based on what a user specify the value in textbox  
+                return View(db.Assets.Where(x => x.Make == search || x.Make.StartsWith(search) && x.Employees.LastName != null).ToList().ToPagedList(page ?? 1, 6));
+            }
+            else if (option == "Department")
+            {
+                return View
+                    (
+                    db.Assets.Where(x => x.Department.DepartmentName == search ||
+                search == null || x.Department.DepartmentName.StartsWith(search)).ToList().ToPagedList(page ?? 1, 6)
+                     );
+            }
+            else
+            {
+                return View(db.Assets.Where(x => x.Department.DepartmentName == null ||x.Employees.FirstName.StartsWith(search) || x.Employees.FirstName == search
+                || x.Employees.LastName == search || x.Employees.LastName.StartsWith(search)).ToList().ToPagedList(page ?? 1, 6));
+            }
+           
 
         }
-
-
 
         //private ActionResult View(object p)
         //{
