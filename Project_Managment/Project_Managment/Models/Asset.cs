@@ -93,7 +93,7 @@ namespace Project_Managment.Models
         [StringLength(255)]
         public string RAM { get; set; }
 
-        [Required(ErrorMessage = "please enter the asset condition")]
+        //[Required(ErrorMessage = "please enter the asset condition")]
         [StringLength(255)]
         public string Condition { get; set; }
 

@@ -74,7 +74,7 @@
             <tr>
 
                 <td>
-                    @if (!string.IsNullOrEmpty(item.Make))
+                    @if (!string.IsNullOrEmpty(item.ComputerName))
 
                         {
                             @Html.ActionLink(item.ComputerName, "Details", new { id = item.AssetID })
