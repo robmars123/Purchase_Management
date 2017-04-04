@@ -246,6 +246,9 @@
   <ItemGroup>
     <Content Include="App_Data\AccessDB.mdf" />
     <Content Include="App_Data\AccessDBxxxx.mdf" />
+    <Content Include="App_Data\AccessDBxxxx_log.ldf">
+      <DependentUpon>AccessDBxxxx.mdf</DependentUpon>
+    </Content>
     <Content Include="App_Data\AccessDB_log.ldf">
       <DependentUpon>AccessDB.mdf</DependentUpon>
     </Content>
