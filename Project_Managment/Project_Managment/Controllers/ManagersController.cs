@@ -10,7 +10,7 @@ using Project_Managment.Models;
 
 namespace Project_Managment.Controllers
 {
-    public class GroupTitleController : Controller
+    public class ManagersController : Controller
     {
         private AccessDbContext db = new AccessDbContext();
 
