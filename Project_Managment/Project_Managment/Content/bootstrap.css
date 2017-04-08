@@ -761,6 +761,7 @@ pre code {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+  
 }
 
 .container:before,
@@ -2337,6 +2338,7 @@ fieldset[disabled] .btn-link:focus {
   font-size: 18px;
   line-height: 1.33;
   border-radius: 6px;
+  color: #000;
 }
 
 .btn-sm,
@@ -4146,6 +4148,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .container > .navbar-collapse {
   margin-right: -15px;
   margin-left: -15px;
+  
 }
 
 @media (min-width: 768px) {
@@ -5742,7 +5745,7 @@ body.modal-open,
   .modal-dialog {
     right: auto;
     left: 50%;
-    width: 600px;
+    width: 500px;
     padding-top: 30px;
     padding-bottom: 30px;
   }

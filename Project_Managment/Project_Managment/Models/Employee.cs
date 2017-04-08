@@ -9,12 +9,15 @@ namespace Project_Managment.Models
     public partial class Employee
     {
 
-        public Employee() { }
-      //  [Key, ForeignKey("Manager")] //FK for Manager Table
-      [Key]
+       // public Employee() { }
+
+        //[Key, ForeignKey("Asset")] 
+       // -- need to change. Taking over assetID
+       [Key, ForeignKey("Employees_Assets")]
         public int EmployeeID { get; set; }
 
 
+        public int? DepartmentID { get; set; }
 
         [StringLength(50)]
         public string FirstName { get; set; }
@@ -25,9 +28,12 @@ namespace Project_Managment.Models
         [StringLength(20)]
         public string OfficeLocation { get; set; }
 
+        public int? GroupID { get; set; }
+      
+       
         public virtual Department Department { get; set; }
-
-     
-
+        public virtual Group Group { get; set; }
+       
+        public virtual Employee_Asset Employees_Assets { get; set; }
     }
 }

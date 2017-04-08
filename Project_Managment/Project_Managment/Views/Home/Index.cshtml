@@ -1,15 +1,24 @@
-﻿@{
+﻿@using Project_Managment.Models
+@model LoginViewModel
+@{
     ViewBag.Title = "Home Page";
 }
+
+
+
+
+
+
+
 <div class="jumbotron">
     <div class="home-box">
         <div class="bottom">
             <div class="col">
-                <a href="@Url.Action("Index", "Managers")">
+                <a href="@Url.Action("Index", "GroupTitle")">
                     <img class="size-image" src="~/Images/manager.png" />
                 </a>
 
-                @Html.ActionLink("Managers", "Index", "Managers")
+                @Html.ActionLink("Managers", "Index", "GroupTitle")
             </div>
             <div class="col">
 
@@ -37,3 +46,97 @@
 </div>
 
 
+<div class="container">
+  
+    <!-- Trigger the modal with a button -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Login</button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+
+                @*<div class="modal-header">
+                    @*<button type="button" class="close" data-dismiss="modal">&times;</button>*@
+                    @*<h4 class="modal-title">Login</h4>
+                </div>*@
+
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal">&times;&nbsp;</button>
+
+
+                    <div class="row">
+
+                        <div class="loginform-div">
+                            <div class="logincol">
+                                Sign In
+                            </div>
+                            <section id="loginForm">
+                                @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                                    @Html.AntiForgeryToken()
+
+                                    <hr />
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    <div class="form-group">
+                                        <div class="email-box">
+                                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Email" })
+                                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="password-box">
+                                            @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Password" })
+                                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="button-box">
+                                            <input type="submit" value="Log in" class="btn btn-default" />
+                                        </div>
+                                    </div>
+                                    <div class="remember-adduser">
+                                        <div class="form-group">
+                                            <div class="remember-me">
+                                                <div class="checkbox">
+                                                    @Html.CheckBoxFor(m => m.RememberMe)
+                                                    @Html.LabelFor(m => m.RememberMe)
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    @* Enable this once you have account confirmation enabled for password reset functionality
+                        <p>
+                            @Html.ActionLink("Forgot your password?", "ForgotPassword")
+                        </p>*@
+                                }
+                            </section>
+
+                        </div>
+                        @*<div class="adduser">
+                            <p>
+                                @Html.ActionLink("Register as a new user", "Register")
+                            </p>
+                        </div>*@
+                    </div>
+                    @section Scripts {
+                        @Scripts.Render("~/bundles/jqueryval")
+                    }
+
+
+                </div>
+                
+                @*<div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>*@
+            </div>
+
+        </div>
+    </div>
+
+</div>

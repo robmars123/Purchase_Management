@@ -13,7 +13,7 @@
         //the following are search options
         <b> Search Option: </b>@Html.RadioButton("option", "Service_Tag", true) <text>Service Tag</text>
         @Html.RadioButton("option", "Serial_No") <text > Serial No. </text>
-        @Html.TextBox("search") <input class="search_box" type="submit"
+        @Html.TextBox("search") <input class="btn btn-primary btn-sm" type="submit"
                                        name="submit"
                                        value="Search" />
     }
@@ -169,6 +169,12 @@
                 <dd>
                     @Html.DisplayFor(model => model.ComputerName)
                 </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Employees.Group.GroupName)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Employees.Group.GroupName)
+                </dd>
 
             </dl>
             </div>
@@ -184,10 +190,10 @@
 
         <div style="width: 40%; float: none">
             <p>
-                @Html.ActionLink("Edit", "Edit", new { id = Model.AssetID }) |
+                @Html.ActionLink("Edit", "Edit", new { id = Model.AssetID }, htmlAttributes: new { @class = "btn btn-primary" }) 
 
-                @Html.ActionLink("Delete", "Delete", new { id = Model.AssetID }) |
-                @Html.ActionLink("Back to List", "Index")
+                @Html.ActionLink("Delete", "Delete", new { id = Model.AssetID }, htmlAttributes: new { @class = "btn btn-primary" }) 
+                @Html.ActionLink("Back to List", "Index", "", htmlAttributes: new { @class = "btn btn-primary" })
             </p>
 
         </div>

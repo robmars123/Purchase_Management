@@ -109,4 +109,12 @@ namespace Project_Managment.Models
         [Display(Name = "Email")]
         public string Email { get; set; }
     }
+
+    public class EmployeeViewModel
+    {
+        public virtual Employee Employees { get; set; }
+        public virtual Department Departments { get; set; }
+    }
+
+    
 }

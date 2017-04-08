@@ -5,7 +5,7 @@ namespace Project_Managment.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
- 
+
     public partial class Asset
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -13,30 +13,25 @@ namespace Project_Managment.Models
         {
             Depreciations = new HashSet<Depreciation>();
             Maintenances = new HashSet<Maintenance>();
-          
+
         }
 
-        
-        
+        // DO NOT PLACE A [Key] here above the AssetID-- will employeeID as assetID
+        //  [Key]
 
-
-
-
-
-
-        [Key]
+       [Key, ForeignKey("Employees_Assets")]
         public int AssetID { get; set; }
 
         [StringLength(255)]
         public string AssetDescription { get; set; }
+       // [ForeignKey("Employees")]
+       // [Key]
 
         public int? EmployeeID { get; set; }
 
-       
-
 
         public int? AssetCategoryID { get; set; }
-        
+
         //[Required(ErrorMessage ="please enter or select the status ID")]
         public int? StatusID { get; set; }
 
@@ -46,7 +41,7 @@ namespace Project_Managment.Models
         //[Required(ErrorMessage = "please enter the vendor ID")]
         public int? VendorID { get; set; }
 
-        [Required(ErrorMessage ="please enter the make")]
+        [Required(ErrorMessage = "please enter the make")]
         [StringLength(50)]
         public string Make { get; set; }
 
@@ -106,8 +101,8 @@ namespace Project_Managment.Models
         [Timestamp]
         public byte[] SSMA_TimeStamp { get; set; }
 
-       
-       
+
+
 
 
 
@@ -117,12 +112,13 @@ namespace Project_Managment.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Maintenance> Maintenances { get; set; }
-        
+
 
         //Nagivation Properties
         //Just added [Key] on top and these  table names - then you can access from the Index.cshtml - Asset
         //employee table
-        public virtual Employee  Employees { get;  set; }
+
+       public virtual Employee Employees { get; set; }
         //asset_cat
         public virtual Asset_Category Asset_Category { get; set; }
         //Status
@@ -132,8 +128,12 @@ namespace Project_Managment.Models
         //Vendor
         public virtual Vendor Vendor { get; set; }
 
+
         //Managers
-      //  [ForeignKey("ManagerId")]
-        public virtual Manager Manager { get; set; }
+        //  [ForeignKey("ManagerId")]
+        //public virtual Group Group { get; set; }
+
+       public virtual Employee_Asset Employees_Assets { get; set; }
+       // public virtual ICollection<Employee> Employees { get; set; }
     }
 }

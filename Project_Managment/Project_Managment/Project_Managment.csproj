@@ -212,9 +212,9 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AssetsController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
+    <Compile Include="Controllers\GroupTitleController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\ManagersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -225,11 +225,11 @@
     <Compile Include="Models\Department.cs" />
     <Compile Include="Models\Depreciation.cs" />
     <Compile Include="Models\Employee.cs" />
-    <Compile Include="Models\Employee_Asset.cs" />
+    <Compile Include="Models\EmployeeAsset.cs" />
     <Compile Include="Models\EmpModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Maintenance.cs" />
-    <Compile Include="Models\Manager.cs" />
+    <Compile Include="Models\Group.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Report.cs" />
     <Compile Include="Models\Status.cs" />
@@ -411,19 +411,19 @@
     <Content Include="Views\Assets\Details.cshtml" />
     <Content Include="Views\Assets\Edit.cshtml" />
     <Content Include="Views\Assets\Index.cshtml" />
+    <Content Include="Views\Assets\Search.cshtml" />
+    <Content Include="Views\Assets\FileDetails.cshtml" />
+    <Content Include="Views\Assets\FileUpload.cshtml" />
     <Content Include="Views\Employees\Create.cshtml" />
     <Content Include="Views\Employees\Delete.cshtml" />
     <Content Include="Views\Employees\Details.cshtml" />
     <Content Include="Views\Employees\Edit.cshtml" />
     <Content Include="Views\Employees\Index.cshtml" />
-    <Content Include="Views\Assets\Search.cshtml" />
-    <Content Include="Views\Managers\Create.cshtml" />
-    <Content Include="Views\Managers\Delete.cshtml" />
-    <Content Include="Views\Managers\Details.cshtml" />
-    <Content Include="Views\Managers\Edit.cshtml" />
-    <Content Include="Views\Managers\Index.cshtml" />
-    <Content Include="Views\Assets\FileDetails.cshtml" />
-    <Content Include="Views\Assets\FileUpload.cshtml" />
+    <Content Include="Views\GroupTitle\Create.cshtml" />
+    <Content Include="Views\GroupTitle\Delete.cshtml" />
+    <Content Include="Views\GroupTitle\Details.cshtml" />
+    <Content Include="Views\GroupTitle\Edit.cshtml" />
+    <Content Include="Views\GroupTitle\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\" />
