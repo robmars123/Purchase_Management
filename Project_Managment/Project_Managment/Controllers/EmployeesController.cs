@@ -10,6 +10,7 @@ using Project_Managment.Models;
 
 namespace Project_Managment.Controllers
 {
+    [Authorize]
     public class EmployeesController : Controller
     {
         private AccessDbContext db = new AccessDbContext();
@@ -17,6 +18,7 @@ namespace Project_Managment.Controllers
         // GET: Employees1
         public ActionResult Index()
         {
+
             var employees = db.Employees.Include(e => e.Department).OrderBy(e => e.FirstName).ToList(); ;
             return View(employees.ToList());
         }
@@ -40,7 +42,7 @@ namespace Project_Managment.Controllers
         public ActionResult Create()
         {
             ViewBag.DepartmentID = new SelectList(db.Departments, "DepartmentID", "DepartmentName");
-            ViewBag.EmployeeID = new SelectList(db.Employee_Assets, "Employee_AssetID", "Employee_AssetID");
+            //ViewBag.EmployeeID = new SelectList(db.Employee_Assets, "Employee_AssetID", "Employee_AssetID");
             ViewBag.GroupID = new SelectList(db.Groups, "GroupID", "GroupName");
             return View();
         }
@@ -60,7 +62,7 @@ namespace Project_Managment.Controllers
             }
 
             ViewBag.DepartmentID = new SelectList(db.Departments, "DepartmentID", "DepartmentName", employee.DepartmentID);
-            ViewBag.EmployeeID = new SelectList(db.Employee_Assets, "Employee_AssetID", "Employee_AssetID", employee.EmployeeID);
+            //ViewBag.EmployeeID = new SelectList(db.Employee_Assets, "Employee_AssetID", "Employee_AssetID", employee.EmployeeID);
             ViewBag.GroupID = new SelectList(db.Groups, "GroupID", "GroupName", employee.GroupID);
             return View(employee);
         }
@@ -78,7 +80,7 @@ namespace Project_Managment.Controllers
                 return HttpNotFound();
             }
             ViewBag.DepartmentID = new SelectList(db.Departments, "DepartmentID", "DepartmentName", employee.DepartmentID);
-            ViewBag.EmployeeID = new SelectList(db.Employee_Assets, "Employee_AssetID", "Employee_AssetID", employee.EmployeeID);
+           // ViewBag.EmployeeID = new SelectList(db.Employee_Assets, "Employee_AssetID", "Employee_AssetID", employee.EmployeeID);
             ViewBag.GroupID = new SelectList(db.Groups, "GroupID", "GroupName", employee.GroupID);
             return View(employee);
         }
@@ -97,7 +99,7 @@ namespace Project_Managment.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.DepartmentID = new SelectList(db.Departments, "DepartmentID", "DepartmentName", employee.DepartmentID);
-            ViewBag.EmployeeID = new SelectList(db.Employee_Assets, "Employee_AssetID", "Employee_AssetID", employee.EmployeeID);
+           // ViewBag.EmployeeID = new SelectList(db.Employee_Assets, "Employee_AssetID", "Employee_AssetID", employee.EmployeeID);
             ViewBag.GroupID = new SelectList(db.Groups, "GroupID", "GroupName", employee.GroupID);
             return View(employee);
         }

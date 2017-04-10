@@ -1,5 +1,4 @@
 ﻿@model IEnumerable<Project_Managment.Models.Employee>
-
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -25,11 +24,11 @@
     }
 </div>
 
-<div class="wrapper">
+<div class="table-responsive">
 
 
 
-    <table class="table">
+    <table class="table table-striped table-hover ">
 
         <tr class="columns">
             <th>
@@ -70,13 +69,15 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.OfficeLocation)
                 </td>
-                <td style="width: 20%; float: none">
-                    @Html.ActionLink("Edit", "Edit", new { id = item.EmployeeID }, htmlAttributes: new { @class = "btn btn-primary" }) 
-                    @Html.ActionLink("Details", "Details", new { id = item.EmployeeID }, htmlAttributes: new { @class = "btn btn-primary" }) 
+
+
+                <td style="width: 30%; float: none">
+                    @Html.ActionLink("Edit", "Edit", new { id = item.EmployeeID }, htmlAttributes: new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Profile", "Details", new { id = item.EmployeeID }, htmlAttributes: new { @class = "btn btn-primary" })
                     @Html.ActionLink("Delete", "Delete", new { id = item.EmployeeID }, htmlAttributes: new { @class = "btn btn-primary" })
                 </td>
             </tr>
         }
 
     </table>
-    </div>
+</div>

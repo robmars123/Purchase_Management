@@ -225,7 +225,7 @@
     <Compile Include="Models\Department.cs" />
     <Compile Include="Models\Depreciation.cs" />
     <Compile Include="Models\Employee.cs" />
-    <Compile Include="Models\EmployeeAsset.cs" />
+    <Compile Include="Models\Employee_Asset.cs" />
     <Compile Include="Models\EmpModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Maintenance.cs" />
@@ -424,8 +424,11 @@
     <Content Include="Views\Managers\Details.cshtml" />
     <Content Include="Views\Managers\Edit.cshtml" />
     <Content Include="Views\Managers\Index.cshtml" />
+    <Content Include="Views\Shared\_Profile.cshtml" />
+    <Content Include="Views\Shared\_Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="DB_Scripts\" />
     <Folder Include="Images\" />
   </ItemGroup>
   <ItemGroup>

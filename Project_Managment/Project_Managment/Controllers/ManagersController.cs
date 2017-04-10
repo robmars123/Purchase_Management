@@ -10,6 +10,7 @@ using Project_Managment.Models;
 
 namespace Project_Managment.Controllers
 {
+    [Authorize]
     public class ManagersController : Controller
     {
         private AccessDbContext db = new AccessDbContext();
@@ -17,7 +18,9 @@ namespace Project_Managment.Controllers
         // GET: GroupTitle
         public ActionResult Index()
         {
-            var employees = db.Employees.Include(e => e.Department).Where(x => x.GroupID == 1).OrderBy(x => x.FirstName).ToList();
+            
+            var employees = db.Employees.Include(e => e.Department).Where(x => x.GroupID == 1).OrderBy(x => x.FirstName);
+            ViewBag.ID = employees;
             return View(employees.ToList());
         }
 
@@ -40,7 +43,7 @@ namespace Project_Managment.Controllers
         public ActionResult Create()
         {
             ViewBag.DepartmentID = new SelectList(db.Departments, "DepartmentID", "DepartmentName");
-            ViewBag.EmployeeID = new SelectList(db.Employee_Assets, "Employee_AssetID", "Employee_AssetID");
+            ViewBag.EmployeeID = new SelectList(db.Employees, "EmployeeID");
             ViewBag.GroupID = new SelectList(db.Groups, "GroupID", "GroupName");
             return View();
         }
@@ -60,7 +63,7 @@ namespace Project_Managment.Controllers
             }
 
             ViewBag.DepartmentID = new SelectList(db.Departments, "DepartmentID", "DepartmentName", employee.DepartmentID);
-            ViewBag.EmployeeID = new SelectList(db.Employee_Assets, "Employee_AssetID", "Employee_AssetID", employee.EmployeeID);
+            ViewBag.EmployeeID = new SelectList(db.Employees, "EmployeeID");
             ViewBag.GroupID = new SelectList(db.Groups, "GroupID", "GroupName", employee.GroupID);
             return View(employee);
         }
@@ -78,7 +81,7 @@ namespace Project_Managment.Controllers
                 return HttpNotFound();
             }
             ViewBag.DepartmentID = new SelectList(db.Departments, "DepartmentID", "DepartmentName", employee.DepartmentID);
-            ViewBag.EmployeeID = new SelectList(db.Employee_Assets, "Employee_AssetID", "Employee_AssetID", employee.EmployeeID);
+            ViewBag.EmployeeID = new SelectList(db.Employees, "EmployeeID");
             ViewBag.GroupID = new SelectList(db.Groups, "GroupID", "GroupName", employee.GroupID);
             return View(employee);
         }
