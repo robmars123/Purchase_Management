@@ -1,0 +1,221 @@
+﻿@model Project_Managment.Models.Asset
+@{
+    ViewBag.Title = "Details";
+}
+<div class="header">
+    <img class="header_logo" src="~/Images/Device.png" />
+    <h4>Device Details</h4>
+
+</div>
+<div class="search_bar">
+    @using (Html.BeginForm("Search", "Assets", FormMethod.Get))
+    {
+        //the following are search options
+        <b> Search Option: </b>@Html.RadioButton("option", "Service_Tag", true) <text>Service Tag</text>
+        @Html.RadioButton("option", "Serial_No") <text > Serial No. </text>
+        @Html.TextBox("search") <input class="btn btn-primary btn-sm" type="submit"
+                                       name="submit"
+                                       value="Search" />
+    }
+</div>
+
+
+
+
+<div class="table-responsive">
+
+
+    <div class="asset_create">
+        <div class="body_header">
+            Device Information
+        </div>
+        
+
+        <div class="details" style="width: 40%; float:left">
+            <dl class="dl-horizontal">
+
+
+
+                <dt>
+                    Asset Description:
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.AssetDescription)
+                </dd>
+                <dt>
+                    Currently Assigned Employee:
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Employees.FirstName)
+                    @Html.DisplayFor(model => model.Employees.LastName)
+                </dd>
+                <dt>
+                    Device Type:
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Asset_Category.AssetCategory)
+                </dd>
+                <dt>
+                    Current Status:
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Status.Status1)
+                </dd>
+                <dt>
+                    Department:
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Department.DepartmentName)
+                </dd>
+                <dt>
+                    Vendor Name:
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Vendor.VendorName)
+                </dd>
+                <dt>
+                    Make:
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Make)
+                </dd>
+                <dt>
+                    Model Number:
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.ModelNumber)
+                </dd>
+                <dt>
+                    Serial Number:
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.SerialNumber)
+                </dd>
+                <dt>
+                    Date Acquired:
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.DateAcquired)
+                </dd>
+                <dt>
+                    Date Sold:
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.DateSold)
+                </dd>
+                <dt>
+                    Purchase Price:
+                </dt>
+                <dd>
+                    $@Html.DisplayFor(model => model.PurchasePrice)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.DepreciationMethod)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.DepreciationMethod)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.DepreciableLife)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.DepreciableLife)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.SalvageValue)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.SalvageValue)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.CurrentValue)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.CurrentValue)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Description)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Description)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.NextSchedMaint)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.NextSchedMaint)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Processor)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Processor)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.RAM)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.RAM)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Condition)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Condition)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.ComputerName)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.ComputerName)
+                </dd>
+              
+                <dt>
+                   @Html.DisplayNameFor(model => model.ManagerListID)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.ManagerLists.Count)
+                </dd>
+                @*<dd>
+                    @Html.DisplayFor(m => m.EmployeesList.Count)
+                   @foreach (var step in Model.ManagerLists)
+                   {
+                      @step.ManagerListID
+                       @step.Employees.FirstName
+                      
+                   }
+                </dd>*@
+                <dd>
+                    @*<div class="form-group">
+                        @Html.LabelFor(model => model.DepartmentID, "DepartmentID", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.DropDownList("DepartmentID", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.DepartmentID, "", new { @class = "text-danger" })
+                        </div>
+                    </div>*@
+                </dd>
+
+            </dl>
+            </div>
+        
+        <div class="comments" style="width: 60%; float:right">
+            <div class="comment-title">@Html.DisplayNameFor(model => model.Comments)</div>
+
+            <div class="comment-body">@Html.DisplayFor(model => model.Comments)</div>
+
+
+
+        </div>
+
+        <div style="width: 40%; float: none">
+            <p>
+                @Html.ActionLink("Edit", "Edit", new { id = Model.AssetID }, htmlAttributes: new { @class = "btn btn-primary" }) 
+
+                @Html.ActionLink("Delete", "Delete", new { id = Model.AssetID }, htmlAttributes: new { @class = "btn btn-primary" }) 
+                @Html.ActionLink("Back to List", "Index", "", htmlAttributes: new { @class = "btn btn-primary" })
+            </p>
+
+        </div>
+
+</div>
+</div>

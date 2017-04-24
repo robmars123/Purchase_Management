@@ -1,0 +1,106 @@
+﻿@model Project_Managment.Models.Employee
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Employee</h4>
+    <hr />
+    <div class="container">
+        <div class="col-sm-6">
+           <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Employee Details</h3>
+                </div>
+                <div class="panel-body">
+                    <dl class="dl-horizontal">
+                        <dt>
+                        @Html.DisplayNameFor(model => model.Department.DepartmentName)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Department.DepartmentName)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Group.GroupName)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Group.GroupName)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.FirstName)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.FirstName)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.LastName)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.LastName)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.OfficeLocation)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.OfficeLocation)
+                    </dd>
+                    <dt>
+                        Number of Assets:
+                       @* @Html.DisplayNameFor(model => model.Employees_Assets.AssetID)*@
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.AssetsList.Count)
+                    </dd>
+                </dl>
+            </div>
+           
+        </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Employee Assets (@Html.DisplayFor(model => model.AssetsList.Count))</h3>
+                        </div>
+                        <div class="panel-body">
+                        <table class="panel-default table table-striped table-hover ">        
+                                    <tr>
+                                        <th>AssetID</th>
+                                        <th>Asset Name</th>
+                                        <th>Make</th>
+                                        <th>Status</th>
+                                        <th>Date Assigned</th>
+                                    </tr>                       
+                                <tbody>
+                                    @foreach (var step in Model.AssetsList)
+                                    {
+                                    <tr>
+                                         <td>@step.AssetID</td>
+                                         <td>@step.ComputerName</td>
+                                         <td>@step.Make</td>
+                                         <td>@step.Status.Status1</td>
+                                         <td>@step.DateAcquired</td>
+                                    </tr>
+                                    }
+                                </tbody>
+                            </table>                          
+                          </div>
+                 </div>
+             </div>
+     </div>
+ </div>
+                    <p>
+                        @Html.ActionLink("Edit", "Edit", new { id = Model.EmployeeID }) |
+                        @Html.ActionLink("Back to List", "Index")
+                    </p>
