@@ -11,9 +11,8 @@ namespace Project_Managment.Models
     {
 
 
-        public Department() { }
-        [Key, ForeignKey("Employees")]
-        [Display(Name = "User Role")]
+       // public Department() { }
+        [Key]
         public int DepartmentID { get; set; }
 
         [StringLength(50)]
@@ -22,9 +21,9 @@ namespace Project_Managment.Models
         // public int EmployeeID { get; set; }
 
      
-        public IEnumerable<SelectListItem> Departments { get; set; }
 
-        public virtual Employee Employees { get; set; }
+        //public virtual Employee Employees { get; set; }
+       
 
     }
 }

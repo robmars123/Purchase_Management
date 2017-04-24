@@ -15,39 +15,15 @@ namespace Project_Managment.Controllers
     {
         private AccessDbContext db = new AccessDbContext();
 
-
-        public ActionResult Dropdown()
-        {
-
-            var g = from s in db.Assets
-                    join sa in db.Employees on s.EmployeeID equals sa.EmployeeID
-                    where s.EmployeeID != null && sa.LastName != null
-                    select s;
-
-            SelectList list = new SelectList(g, "Departments");
-            ViewBag.Roles = list;
-            return View(list);
-        }
-    
-
-        // GET: Employees
+        // GET: Employees1
         public ActionResult Index()
         {
 
-            //List<Employee> employees = db.Employees.Where(x => x.DepartmentID == id ).ToList();
-            //return View(employees);
-
-            //var g = from s in db.Employees
-            //        join sa in db.Departments on s.EmployeeID equals sa.Employees.EmployeeID
-            //        where s.LastName != null
-            //        select s;
-
-            //return View(g.ToList());
-
-           return View(db.Employees.ToList());
+            var employees = db.Employees.Include(e => e.Department).OrderBy(e => e.FirstName).ToList(); ;
+            return View(employees.ToList());
         }
 
-        // GET: Employees/Details/5
+        // GET: Employees1/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -62,18 +38,21 @@ namespace Project_Managment.Controllers
             return View(employee);
         }
 
-        // GET: Employees/Create
+        // GET: Employees1/Create
         public ActionResult Create()
         {
+            ViewBag.DepartmentID = new SelectList(db.Departments, "DepartmentID", "DepartmentName");
+            //ViewBag.EmployeeID = new SelectList(db.Employee_Assets, "Employee_AssetID", "Employee_AssetID");
+            ViewBag.GroupID = new SelectList(db.Groups, "GroupID", "GroupName");
             return View();
         }
 
-        // POST: Employees/Create
+        // POST: Employees1/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "EmployeeID,FirstName,LastName,OfficeLocation")] Employee employee)
+        public ActionResult Create([Bind(Include = "EmployeeID,DepartmentID,FirstName,LastName,OfficeLocation,GroupID")] Employee employee)
         {
             if (ModelState.IsValid)
             {
@@ -82,10 +61,13 @@ namespace Project_Managment.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.DepartmentID = new SelectList(db.Departments, "DepartmentID", "DepartmentName", employee.DepartmentID);
+            //ViewBag.EmployeeID = new SelectList(db.Employee_Assets, "Employee_AssetID", "Employee_AssetID", employee.EmployeeID);
+            ViewBag.GroupID = new SelectList(db.Groups, "GroupID", "GroupName", employee.GroupID);
             return View(employee);
         }
 
-        // GET: Employees/Edit/5
+        // GET: Employees1/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -97,15 +79,18 @@ namespace Project_Managment.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.DepartmentID = new SelectList(db.Departments, "DepartmentID", "DepartmentName", employee.DepartmentID);
+           // ViewBag.EmployeeID = new SelectList(db.Employee_Assets, "Employee_AssetID", "Employee_AssetID", employee.EmployeeID);
+            ViewBag.GroupID = new SelectList(db.Groups, "GroupID", "GroupName", employee.GroupID);
             return View(employee);
         }
 
-        // POST: Employees/Edit/5
+        // POST: Employees1/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "EmployeeID,FirstName,LastName,OfficeLocation,DepartmentName")] Employee employee)
+        public ActionResult Edit([Bind(Include = "EmployeeID,DepartmentID,FirstName,LastName,OfficeLocation,GroupID")] Employee employee)
         {
             if (ModelState.IsValid)
             {
@@ -113,10 +98,13 @@ namespace Project_Managment.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.DepartmentID = new SelectList(db.Departments, "DepartmentID", "DepartmentName", employee.DepartmentID);
+           // ViewBag.EmployeeID = new SelectList(db.Employee_Assets, "Employee_AssetID", "Employee_AssetID", employee.EmployeeID);
+            ViewBag.GroupID = new SelectList(db.Groups, "GroupID", "GroupName", employee.GroupID);
             return View(employee);
         }
 
-        // GET: Employees/Delete/5
+        // GET: Employees1/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -131,7 +119,7 @@ namespace Project_Managment.Controllers
             return View(employee);
         }
 
-        // POST: Employees/Delete/5
+        // POST: Employees1/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

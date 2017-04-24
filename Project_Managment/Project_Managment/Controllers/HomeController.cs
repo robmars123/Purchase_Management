@@ -10,6 +10,7 @@ namespace Project_Managment.Controllers
     {
         public ActionResult Index()
         {
+
             return View();
         }
 
@@ -30,6 +31,11 @@ namespace Project_Managment.Controllers
         {
             ViewBag.Message = "Your assets page.";
 
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Action()
+        {
             return View();
         }
     }
