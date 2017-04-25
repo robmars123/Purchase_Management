@@ -82,7 +82,7 @@ namespace Project_Managment.Controllers
           //  if (option == "Make")
             {
                     //Index action method will return a view with a student records based on what a user specify the value in textbox  
-                    return View(db.Assets.Where(x => x.Make == search || x.Make.StartsWith(search) && x.Employees_Assets.Employees.LastName != null).ToList().ToPagedList( page ?? 1, 6));
+                    return View(db.Assets.Where(x => x.Make == search || x.Make.StartsWith(search) && x.Employees.LastName != null).ToList().ToPagedList( page ?? 1, 6));
                 }
                 else if (option == "Department")
                 {
