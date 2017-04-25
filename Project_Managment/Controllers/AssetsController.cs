@@ -95,7 +95,7 @@ namespace Project_Managment.Controllers
                 else
                 {
                     return View(db.Assets.Where(x => x.Employees.FirstName.StartsWith(search) || x.Employees.FirstName == search
-                    || x.Employees.LastName == search || x.Employees_Assets.Employees.LastName.StartsWith(search)).ToList().ToPagedList(page ?? 1, 6));
+                    || x.Employees.LastName == search || x.Employees.LastName.StartsWith(search)).ToList().ToPagedList(page ?? 1, 6));
                 }
         }
         // GET: Assets/Details/5
