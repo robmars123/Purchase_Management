@@ -14,14 +14,14 @@ namespace Project_Managment.Controllers
     {
         private AccessDbContext db = new AccessDbContext();
 
-        // GET: ManagerLists
+        // GET: ManagerListsTable
         public ActionResult Index()
         {
             var managerLists = db.ManagerLists;
             return View(managerLists.ToList());
         }
 
-        // GET: ManagerLists/Details/5
+        // GET: ManagerListsTable/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,21 +36,21 @@ namespace Project_Managment.Controllers
             return View(managerList);
         }
 
-        // GET: ManagerLists/Create
+        // GET: ManagerListsTable/Create
         public ActionResult Create()
         {
-            ViewBag.AssetID = new SelectList(db.Assets, "AssetID", "ComputerName");
-            ViewBag.EmployeeID = new SelectList(db.Employees.Where(e => e.GroupID == 1), "EmployeeID", "FirstName");
+            ViewBag.ManagerListID = new SelectList(db.Assets, "AssetID", "AssetDescription");
+            ViewBag.EmployeeID = new SelectList(db.Employees.Where(x => x.GroupID == 1), "EmployeeID", "FirstName");
             ViewBag.GroupID = new SelectList(db.Groups, "GroupID", "GroupName");
             return View();
         }
 
-        // POST: ManagerLists/Create
+        // POST: ManagerListsTable/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,EmployeeID,GroupID,AssetID")] ManagerList managerList)
+        public ActionResult Create([Bind(Include = "ManagerListID,EmployeeID,GroupID")] ManagerList managerList)
         {
             if (ModelState.IsValid)
             {
@@ -59,13 +59,13 @@ namespace Project_Managment.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.AssetID = new SelectList(db.Assets, "AssetID", "ComputerName", managerList.AssetID);
-            ViewBag.EmployeeID = new SelectList(db.Employees, "EmployeeID", "FirstName", managerList.Employees.GroupID==1);
+            ViewBag.ManagerListID = new SelectList(db.Assets, "AssetID", "AssetDescription", managerList.ManagerListID);
+            ViewBag.EmployeeID = new SelectList(db.Employees.Where(x => x.GroupID == 1), "EmployeeID", "FirstName", managerList.EmployeeID);
             ViewBag.GroupID = new SelectList(db.Groups, "GroupID", "GroupName", managerList.GroupID);
             return View(managerList);
         }
 
-        // GET: ManagerLists/Edit/5
+        // GET: ManagerListsTable/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -77,18 +77,18 @@ namespace Project_Managment.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.AssetID = new SelectList(db.Assets, "AssetID", "ComputerName", managerList.AssetID);
-            ViewBag.EmployeeID = new SelectList(db.Employees, "EmployeeID", "FirstName", managerList.Employees.GroupID == 1);
+            ViewBag.ManagerListID = new SelectList(db.Assets, "AssetID", "AssetDescription", managerList.ManagerListID);
+            ViewBag.EmployeeID = new SelectList(db.Employees.Where(x => x.GroupID == 1), "EmployeeID", "FirstName", managerList.EmployeeID);
             ViewBag.GroupID = new SelectList(db.Groups, "GroupID", "GroupName", managerList.GroupID);
             return View(managerList);
         }
 
-        // POST: ManagerLists/Edit/5
+        // POST: ManagerListsTable/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,EmployeeID,GroupID,AssetID")] ManagerList managerList)
+        public ActionResult Edit([Bind(Include = "ManagerListID,EmployeeID,GroupID")] ManagerList managerList)
         {
             if (ModelState.IsValid)
             {
@@ -96,13 +96,13 @@ namespace Project_Managment.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.AssetID = new SelectList(db.Assets, "AssetID", "ComputerName", managerList.AssetID);
-            ViewBag.EmployeeID = new SelectList(db.Employees, "EmployeeID", "FirstName", managerList.Employees.GroupID == 1);
+            ViewBag.ManagerListID = new SelectList(db.Assets, "AssetID", "AssetDescription", managerList.ManagerListID);
+            ViewBag.EmployeeID = new SelectList(db.Employees.Where(x => x.GroupID == 1), "EmployeeID", "FirstName", managerList.EmployeeID);
             ViewBag.GroupID = new SelectList(db.Groups, "GroupID", "GroupName", managerList.GroupID);
             return View(managerList);
         }
 
-        // GET: ManagerLists/Delete/5
+        // GET: ManagerListsTable/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -117,7 +117,7 @@ namespace Project_Managment.Controllers
             return View(managerList);
         }
 
-        // POST: ManagerLists/Delete/5
+        // POST: ManagerListsTable/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

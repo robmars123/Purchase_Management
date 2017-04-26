@@ -15,21 +15,55 @@
     setTimeout('SessionEnd()', sTimeout);
     function SessionEnd()
     {
-        alert("Your Session will timeout in 1 minute.");
+        //alert("Your Session will timeout in 1 minute.");
+        promptWindow();
         window.location = "/Home/Index";
     }
-    </script>
 
+    function promptWindow() {
+        // Create template
+        var box = document.createElement("div");
+        var cancel = document.createElement("button");
+        cancel.innerHTML = "Cancel";
+        cancel.onclick = function () { document.body.removeChild(this.parentNode) }
+        var text = document.createTextNode("Your session has expired.");
+        box.appendChild(text);
+        // box.appendChild(input);
+        var br = document.createElement("br");
+        box.appendChild(br);
+      
+        box.appendChild(cancel);
+
+        // Style box
+        box.style.backgroundColor = "white";
+        box.style.border = "1px solid #000000";
+        box.style.position = "absolute";
+        box.style.width = "400px";
+        box.style.height = "150px";
+        box.style.marginLeft = "35%";
+        box.style.paddingTop = "2%";
+       // box.style.paddingLeft = "5%";
+        box.style.textAlign = "center";
+        box.style.boxShadow = "2px 2px 2px black";
+
+        // Center box.
+        box.style.left = (window.innerWidth / 2) ;
+        box.style.top = "100px";
+
+        // Append box to body
+        document.body.appendChild(box);
+
+    }
+    </script>
+    
        
  
     
 </head>
 
 
-
-
-
 <body>
+    
 
 
    
@@ -47,12 +81,22 @@
 
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
+                    @* if not logged in. *@
+                    @if (Request.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Managers", "Index", "Managers")</li>
+                        <li>@Html.ActionLink("Assets", "Index", "Assets")</li>
+                        <li>@Html.ActionLink("Employees", "Index", "Employees")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
 
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Managers", "Index", "Managers")</li>
-                    <li>@Html.ActionLink("Assets", "Index", "Assets")</li>
-                    <li>@Html.ActionLink("Employees", "Index", "Employees")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    }
+                    
+
 
 
 
@@ -82,5 +126,5 @@
         @Scripts.Render("~/bundles/jquery")
                     @Scripts.Render("~/bundles/bootstrap")
                     @RenderSection("scripts", required: false)
-                </body>
+    </body>
 </html>

@@ -66,13 +66,14 @@ namespace Project_Managment.Controllers
         // GET: Assets
         public ActionResult Index(string option, string search, int? page)
         {
-            //to filter nulls on Emploee.Lastname in all searches 
+            //to filter nulls on Employee.Lastname in all searches 
             if (option == null)
             {
                 var g = from s in db.Assets
                         join sa in db.Employees on s.EmployeeID equals sa.EmployeeID
                         where s.EmployeeID != null && sa.LastName != null
                         select s;
+
 
                 return View(g.ToList().ToPagedList(page ?? 1, 6));
             }
@@ -160,7 +161,7 @@ namespace Project_Managment.Controllers
                 return HttpNotFound();
             }
           //  ViewBag.AssetID = new SelectList(db.Assets, "AssetID", "ComputerName", managerList.AssetID);
-            ViewBag.EmployeeID = new SelectList(db.ManagerLists, "EmployeeID", "FirstName", asset.EmployeeID);
+            //ViewBag.EmployeeID = new SelectList(db.ManagerLists, "EmployeeID", "FirstName", asset.EmployeeID);
             //ViewBag.GroupID = new SelectList(db.Groups, "GroupID", "GroupName", asset.GroupID);
             
             return View(asset);
@@ -179,7 +180,7 @@ namespace Project_Managment.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.ManagerListID = new SelectList(db.ManagerLists, "EmployeeID", "FirstName", asset.EmployeeID);
+            //ViewBag.ManagerListID = new SelectList(db.ManagerLists, "EmployeeID", "FirstName", asset.EmployeeID);
             return View(asset);
         }
 

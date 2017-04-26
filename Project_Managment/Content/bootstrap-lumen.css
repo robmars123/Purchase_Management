@@ -5973,7 +5973,7 @@ button.close {
   margin: 0px;
 }
 .modal-content {
-    background-image: url("../Images/glassy.jpg");
+    /*background-image: url("../Images/glassy.jpg");*/
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
 	width: 100%;
@@ -7178,7 +7178,6 @@ button.close {
           transition: 0s;
 }
 .btn {
-    margin-left: 8px;
     margin-bottom: 4px;
   text-transform: uppercase;
   border: none;

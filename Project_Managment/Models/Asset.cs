@@ -128,13 +128,9 @@ namespace Project_Managment.Models
         //Vendor
         public virtual Vendor Vendor { get; set; }
 
-        public virtual ICollection<ManagerList> ManagerLists { get; set; }
-       
-        //Managers
-        //  [ForeignKey("ManagerId")]
-        //public virtual Group Group { get; set; }
-
+        public virtual ManagerList ManagerList { get; set; }
+       // public virtual ICollection<ManagerList> _ManagerLists { get; set; }
         public virtual Employee_Asset Employees_Assets { get; set; }
-       // public virtual ICollection<Employee> Employees { get; set; }
+
     }
 }

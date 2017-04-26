@@ -58,7 +58,12 @@
             <th>
                 Vendor Name
             </th>
-
+            <th>
+                Manager
+            </th>
+            <th>
+                Manager Name
+            </th>
         </tr>
 
         @if (Model.Count() == 0)
@@ -107,7 +112,13 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Vendor.VendorName)
                 </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ManagerList.ManagerListID)
+                </td>
+                <td>
+                   @Html.DisplayFor(modelItem => item.ManagerList.EmployeeID)
 
+                </td>
             </tr>
         }
         

@@ -18,12 +18,5 @@ namespace Project_Managment.Models
         [StringLength(50)]
         public string DepartmentName { get; set; }
 
-        // public int EmployeeID { get; set; }
-
-     
-
-        //public virtual Employee Employees { get; set; }
-       
-
     }
 }
