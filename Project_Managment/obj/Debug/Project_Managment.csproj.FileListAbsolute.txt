@@ -349,3 +349,21 @@ C:\Users\robmars\Desktop\Purchase_Management\Purchase_Management\Project_Managme
 C:\Users\robmars\Desktop\Purchase_Management\Purchase_Management\Project_Managment\obj\Debug\Project_Managment.csprojResolveAssemblyReference.cache
 C:\Users\robmars\Desktop\Purchase_Management\Purchase_Management\Project_Managment\obj\Debug\Project_Managment.dll
 C:\Users\robmars\Desktop\Purchase_Management\Purchase_Management\Project_Managment\obj\Debug\Project_Managment.pdb
+D:\purchase management\Purchase_Management\Project_Managment\bin\ApplicationInsights.config
+D:\purchase management\Purchase_Management\Project_Managment\bin\roslyn\csc.exe
+D:\purchase management\Purchase_Management\Project_Managment\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\purchase management\Purchase_Management\Project_Managment\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\purchase management\Purchase_Management\Project_Managment\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\purchase management\Purchase_Management\Project_Managment\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\purchase management\Purchase_Management\Project_Managment\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\purchase management\Purchase_Management\Project_Managment\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\purchase management\Purchase_Management\Project_Managment\bin\roslyn\System.Collections.Immutable.dll
+D:\purchase management\Purchase_Management\Project_Managment\bin\roslyn\System.Reflection.Metadata.dll
+D:\purchase management\Purchase_Management\Project_Managment\bin\roslyn\vbc.exe
+D:\purchase management\Purchase_Management\Project_Managment\bin\roslyn\VBCSCompiler.exe
+D:\purchase management\Purchase_Management\Project_Managment\bin\roslyn\VBCSCompiler.exe.config
+D:\purchase management\Purchase_Management\Project_Managment\bin\Project_Managment.dll.config
+D:\purchase management\Purchase_Management\Project_Managment\bin\Project_Managment.dll
+D:\purchase management\Purchase_Management\Project_Managment\bin\Project_Managment.pdb
+D:\purchase management\Purchase_Management\Project_Managment\obj\Debug\Project_Managment.dll
+D:\purchase management\Purchase_Management\Project_Managment\obj\Debug\Project_Managment.pdb

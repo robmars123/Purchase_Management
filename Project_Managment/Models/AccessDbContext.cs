@@ -108,5 +108,7 @@ namespace Project_Managment.Models
                 .Property(e => e.SSMA_TimeStamp)
                 .IsFixedLength();
         }
-     }
+
+        public System.Data.Entity.DbSet<Project_Managment.Models.Invoice> Invoices { get; set; }
+    }
 }
