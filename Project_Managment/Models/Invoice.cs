@@ -5,6 +5,8 @@ namespace Project_Managment.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using System.Linq;
+    using System.Web;
 
     [Table("Invoice")]
     public partial class Invoice
@@ -29,5 +31,25 @@ namespace Project_Managment.Models
 
         [Column("Total Billed", TypeName = "money")]
         public decimal? Total_Billed { get; set; }
+
+        public byte[] pdf { get; set; }
+    }
+    public class EmpModel
+    {
+        [Required]
+        [DataType(DataType.Upload)]
+        [Display(Name = "Select File")]
+        public HttpPostedFileBase files { get; set; }
+    }
+
+    public class FileDetailsModel
+    {
+
+        public int Id { get; set; }
+        [Display(Name = "Uploaded File")]
+        public string Case_Name { get; set; }
+        public byte[] pdf { get; set; }
+
+
     }
 }

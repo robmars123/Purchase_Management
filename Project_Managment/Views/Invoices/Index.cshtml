@@ -47,6 +47,9 @@
             <th>
                 Total Billed
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pdf)
+            </th>
             <th></th>
         </tr>
 
@@ -71,6 +74,9 @@
                 <td>
                     $@Html.DisplayFor(modelItem => item.Total_Billed)
                 </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.pdf)
+                </td>
                 <td style="width: 20%; float: none">
                     @Html.ActionLink("Edit", "Edit", new { id = item.Id }, htmlAttributes: new { @class = "btn btn-primary" })
                     @Html.ActionLink("Profile", "Details", new { id = item.Id }, htmlAttributes: new { @class = "btn btn-primary" })
@@ -80,4 +86,5 @@
         }
 
     </table>
-    </div>
+</div>
+

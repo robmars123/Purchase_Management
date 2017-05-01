@@ -367,3 +367,4 @@ D:\purchase management\Purchase_Management\Project_Managment\bin\Project_Managme
 D:\purchase management\Purchase_Management\Project_Managment\bin\Project_Managment.pdb
 D:\purchase management\Purchase_Management\Project_Managment\obj\Debug\Project_Managment.dll
 D:\purchase management\Purchase_Management\Project_Managment\obj\Debug\Project_Managment.pdb
+D:\purchase management\Purchase_Management\Project_Managment\obj\Debug\Project_Managment.csprojResolveAssemblyReference.cache
