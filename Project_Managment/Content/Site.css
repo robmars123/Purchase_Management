@@ -1,6 +1,5 @@
 ﻿body {
 	padding-top: 50px;
-	padding-bottom: 20px;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -51,7 +50,7 @@ textarea {
 	margin:auto;
 	
 	border-color: #000305;
-	padding-left: 40px;
+	/*padding-left: 40px;*/
 }
 
 .table a{
@@ -141,7 +140,7 @@ textarea {
 }
 
 .columns th{
-	width: 5%;
+	/*width: 5%;*/
 	
 }
 
@@ -156,20 +155,14 @@ textarea {
 .link_page{
 	text-align: center;
 }
-footer{
+#footer{
     background-color: #666666;
-    width: 130%;
-    height: 200px;
-    margin-left: -20%;
-    margin-right: 50%;
-}
-.footer{
-    padding: 1%;
-    padding-left: 6%;
-	text-align: center;
     color: #e9e9e9;
-
+   bottom:0;
+   width:100%;
+   height:60px;   /* Height of the footer */
 }
+
 
 /*SEARCH BAR*/
 

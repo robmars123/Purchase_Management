@@ -19,54 +19,10 @@
         promptWindow();
         window.location = "/Home/Index";
     }
-
-    function promptWindow() {
-        // Create template
-        var box = document.createElement("div");
-        var cancel = document.createElement("button");
-        cancel.innerHTML = "Cancel";
-        cancel.onclick = function () { document.body.removeChild(this.parentNode) }
-        var text = document.createTextNode("Your session has expired.");
-        box.appendChild(text);
-        // box.appendChild(input);
-        var br = document.createElement("br");
-        box.appendChild(br);
-      
-        box.appendChild(cancel);
-
-        // Style box
-        box.style.backgroundColor = "white";
-        box.style.border = "1px solid #000000";
-        box.style.position = "absolute";
-        box.style.width = "400px";
-        box.style.height = "150px";
-        box.style.marginLeft = "35%";
-        box.style.paddingTop = "2%";
-       // box.style.paddingLeft = "5%";
-        box.style.textAlign = "center";
-        box.style.boxShadow = "2px 2px 2px black";
-
-        // Center box.
-        box.style.left = (window.innerWidth / 2) ;
-        box.style.top = "100px";
-
-        // Append box to body
-        document.body.appendChild(box);
-
-    }
-    </script>
-    
-       
- 
-    
+  
+    </script>    
 </head>
-
-
 <body>
-    
-
-
-   
 
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
@@ -96,11 +52,7 @@
                     {
                         <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     }
-                    
-
-
-
-
+                   
                 </ul>
                
                    
@@ -111,19 +63,19 @@
                 @* If not authenticated still show the links below *@
 
 
-
-
-
             </div>
         </div>
         <div class="container body-content">
             @RenderBody()
             <hr />
-            <footer class="footer">
+            
+        </div>
+        <div id="footer">
+            <footer class="text-center">
                 <p>&copy; @DateTime.Now.Year JCCC CIS - 264 Project by Team 3</p>
             </footer>
         </div>
-
+   
         @Scripts.Render("~/bundles/jquery")
                     @Scripts.Render("~/bundles/bootstrap")
                     @RenderSection("scripts", required: false)

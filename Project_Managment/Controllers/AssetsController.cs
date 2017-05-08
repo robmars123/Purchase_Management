@@ -136,7 +136,7 @@ namespace Project_Managment.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "AssetID,AssetDescription,EmployeeID,AssetCategoryID,StatusID,DepartmentID,VendorID,Make,ModelNumber,SerialNumber,DateAcquired,DateSold,PurchasePrice,DepreciationMethod,DepreciableLife,SalvageValue,CurrentValue,Comments,Description,NextSchedMaint,Processor,RAM,Condition,ComputerName,SSMA_TimeStamp")] Asset asset)
+        public ActionResult Create([Bind(Include = "AssetID,AssetDescription,EmployeeID,AssetCategoryID,StatusID,DepartmentID,VendorID,Make,ModelNumber,SerialNumber,DateAcquired,DateSold,PurchasePrice,DepreciationMethod,DepreciableLife,SalvageValue,CurrentValue,Comments,Description,NextSchedMaint,Processor,RAM,Condition,ComputerName,SSMA_TimeStamp,DepartmentCode,FundCode,ObjectCode")] Asset asset)
         {
             if (ModelState.IsValid)
             {
@@ -159,11 +159,7 @@ namespace Project_Managment.Controllers
             if (asset == null)
             {
                 return HttpNotFound();
-            }
-          //  ViewBag.AssetID = new SelectList(db.Assets, "AssetID", "ComputerName", managerList.AssetID);
-            //ViewBag.EmployeeID = new SelectList(db.ManagerLists, "EmployeeID", "FirstName", asset.EmployeeID);
-            //ViewBag.GroupID = new SelectList(db.Groups, "GroupID", "GroupName", asset.GroupID);
-            
+            }  
             return View(asset);
         }
 
@@ -172,7 +168,7 @@ namespace Project_Managment.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "AssetID,AssetDescription,EmployeeID,AssetCategoryID,StatusID,DepartmentID,VendorID,Make,ModelNumber,SerialNumber,DateAcquired,DateSold,PurchasePrice,DepreciationMethod,DepreciableLife,SalvageValue,CurrentValue,Comments,Description,NextSchedMaint,Processor,RAM,Condition,ComputerName,SSMA_TimeStamp")] Asset asset)
+        public ActionResult Edit([Bind(Include = "AssetID,AssetDescription,EmployeeID,AssetCategoryID,StatusID,DepartmentID,VendorID,Make,ModelNumber,SerialNumber,DateAcquired,DateSold,PurchasePrice,DepreciationMethod,DepreciableLife,SalvageValue,CurrentValue,Comments,Description,NextSchedMaint,Processor,RAM,Condition,ComputerName,SSMA_TimeStamp,GroupID,DepartmentCode,FundCode,ObjectCode")] Asset asset)
         {
             if (ModelState.IsValid)
             {

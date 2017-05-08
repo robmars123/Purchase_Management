@@ -16,29 +16,21 @@ namespace Project_Managment.Models
 
         }
 
-        // DO NOT PLACE A [Key] here above the AssetID-- will employeeID as assetID
-        //  [Key]
-
        [Key, ForeignKey("Employees_Assets")]
         public int AssetID { get; set; }
 
         [StringLength(255)]
         public string AssetDescription { get; set; }
-       // [ForeignKey("Employees")]
-       // [Key]
 
         public int? EmployeeID { get; set; }
 
 
         public int? AssetCategoryID { get; set; }
 
-        //[Required(ErrorMessage ="please enter or select the status ID")]
         public int? StatusID { get; set; }
 
-        //[Required(ErrorMessage ="please enter the departmentID")]
         public int? DepartmentID { get; set; }
-
-        //[Required(ErrorMessage = "please enter the vendor ID")]
+   
         public int? VendorID { get; set; }
 
         [Required(ErrorMessage = "please enter the make")]
@@ -103,7 +95,9 @@ namespace Project_Managment.Models
        
         public int? ManagerListID { get; set; }
 
-
+        public int? DepartmentCode { get; set; }
+        public int? FundCode { get; set; }
+        public int? ObjectCode { get; set; }
 
 
 
