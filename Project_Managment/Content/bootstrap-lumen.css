@@ -2317,7 +2317,7 @@ th {
 .table > tbody > tr > td,
 .table > tfoot > tr > td {
   padding: 8px;
-  padding-left: 15px;
+  /*padding-left: 15px;*/
   line-height: 1.846;
   vertical-align: top;
   border-top: 1px solid #dddddd;
@@ -7179,7 +7179,7 @@ button.close {
 }
 .btn {
     margin-bottom: 4px;
-  text-transform: uppercase;
+  /*text-transform: uppercase;*/
   border: none;
   -webkit-box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
