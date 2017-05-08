@@ -1,0 +1,101 @@
+﻿@model Project_Managment.Models.Invoice
+
+@{
+    ViewBag.Title = "FileUpload";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>FileUpload</h2>
+
+<div>
+    <h4>Invoice</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Firm_Invoice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Firm_Invoice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Case_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Case_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Invoice_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Invoice_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Appealable_Items)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Appealable_Items)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Total_Billed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Total_Billed)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pdf)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pdf)
+        </dd>
+        <div class="form-horizontal">
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.pdf, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.pdf, "", new { @type = "file", @multiple = "multiple" })
+                    @Html.ValidationMessageFor(model => model.pdf, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Upload" class="btn btn-primary" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10 text-success">
+                    @ViewBag.FileStatus
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    </dl>
+</div>
+<p>
+
+    @Html.ActionLink("Back to List", "Index")
+</p>

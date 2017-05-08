@@ -33,21 +33,18 @@ namespace Project_Managment.Models
         public decimal? Total_Billed { get; set; }
 
         public byte[] pdf { get; set; }
-    }
-    public class EmpModel
-    {
-        [Required]
+        public string FileName { get; set; }
+        [NotMapped]
         [DataType(DataType.Upload)]
         [Display(Name = "Select File")]
         public HttpPostedFileBase files { get; set; }
     }
-
     public class FileDetailsModel
     {
 
         public int Id { get; set; }
         [Display(Name = "Uploaded File")]
-        public string Case_Name { get; set; }
+        public String FileName { get; set; }
         public byte[] pdf { get; set; }
 
 

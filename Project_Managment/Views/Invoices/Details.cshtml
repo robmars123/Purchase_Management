@@ -11,73 +11,90 @@
 <div>
     <h4>Invoice</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Firm_Invoice)
-        </dt>
+    <div class="container">
+        <div class="col-sm-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Employee Details</h3>
+                </div>
+                <div class="panel-body">
+                    <dl class="dl-horizontal">
+                        <dt>
+                            Firm Invoice
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Firm_Invoice)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.Firm_Invoice)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Case_Name)
-        </dt>
+                        <dt>
+                            Case Name
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Case_Name)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.Case_Name)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Status)
-        </dt>
+                        <dt>
+                            Status
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Status)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.Status)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Invoice_Date)
-        </dt>
+                        <dt>
+                           Invoice Date
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Invoice_Date)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.Invoice_Date)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Appealable_Items)
-        </dt>
+                        <dt>
+                           Appealable Items
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Appealable_Items)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.Appealable_Items)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Total_Billed)
-        </dt>
+                        <dt>
+                            Total Billed
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Total_Billed)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.Total_Billed)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.pdf)
-        </dt>
+                        <dt>
+                           PDF File Name
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.pdf)
-        </dd>
-    </dl>
+                        <dd>
+                            @Html.DisplayFor(model => model.FileName)
+                        </dd>
+                    </dl>
+                </div>
+
+        </div>
+            <p>
+                @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+                @Html.ActionLink("Back to List", "Index")
+            </p>
+    </div>
+    <div class="col-sm-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">PDF (@Html.DisplayFor(model => model.FileName))</h3>
+
+                    
+                        
+
+                </div>
+@Html.ActionLink("Download", "DownloadFile", new { id = Model.Id }, htmlAttributes: new { @class = "btn btn-primary" })
+</div>
 </div>
 
-
-            <td>
-                @Html.ActionLink("Download", "DownLoadFile")
-
-            </td>
-
-
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+</div>
+</div>

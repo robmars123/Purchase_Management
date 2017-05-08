@@ -33,6 +33,7 @@ namespace Project_Managment.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             Invoice invoice = db.Invoices.Find(id);
             if (invoice == null)
             {
@@ -53,20 +54,21 @@ namespace Project_Managment.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Firm_Invoice,Case_Name,Status,Invoice_Date,Appealable_Items,Total_Billed,pdf")] Invoice invoice)
+        public ActionResult Create([Bind(Include = "Id,Firm_Invoice,Case_Name,Status,Invoice_Date,Appealable_Items,Total_Billed,pdf")] Invoice invoice, HttpPostedFileBase files)
         {
+ 
             if (ModelState.IsValid)
             {
+
                 db.Invoices.Add(invoice);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
             return View(invoice);
         }
 
         // GET: Invoices/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int? id, HttpPostedFileBase files)
         {
             if (id == null)
             {
@@ -85,14 +87,29 @@ namespace Project_Managment.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Firm_Invoice,Case_Name,Status,Invoice_Date,Appealable_Items,Total_Billed,pdf")] Invoice invoice)
+        public ActionResult Edit([Bind(Include = "Id,Firm_Invoice,Case_Name,Status,Invoice_Date,Appealable_Items,Total_Billed,pdf")] Invoice invoice, HttpPostedFileBase files)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(invoice).State = EntityState.Modified;
-                db.SaveChanges();
+                    db.Entry(invoice).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
+                String FileExt = Path.GetExtension(files.FileName).ToUpper();
+
+                if (FileExt == ".PDF")
+                {
+                    Stream str = files.InputStream;
+                    BinaryReader Br = new BinaryReader(str);
+                    Byte[] FileDet = Br.ReadBytes((Int32)str.Length);
+
+                    FileDetailsModel Fd = new Models.FileDetailsModel();
+                    Fd.FileName = files.FileName;
+                    Fd.pdf = FileDet;
+                    Fd.Id = invoice.Id;
+                    EditFileDetails(Fd);
                 return RedirectToAction("Index");
             }
+
             return View(invoice);
         }
 
@@ -130,7 +147,10 @@ namespace Project_Managment.Controllers
             }
             base.Dispose(disposing);
         }
-        #region Upload Download file
+
+
+        [HttpPost]
+        #region Upload Download file  
         public ActionResult FileUpload()
         {
             return View();
@@ -150,7 +170,7 @@ namespace Project_Managment.Controllers
                 Byte[] FileDet = Br.ReadBytes((Int32)str.Length);
 
                 FileDetailsModel Fd = new Models.FileDetailsModel();
-                Fd.Case_Name = files.FileName;
+                Fd.FileName = files.FileName;
                 Fd.pdf = FileDet;
                 SaveFileDetails(Fd);
                 return RedirectToAction("FileUpload");
@@ -164,9 +184,29 @@ namespace Project_Managment.Controllers
             }
 
         }
+        public ActionResult DownloadFile(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
 
+            Invoice invoice = db.Invoices.Find(id);
+            if (invoice == null)
+            {
+                return HttpNotFound();
+            }
+            List<FileDetailsModel> ObjFiles = GetFileList();
+
+            var FileById = (from FC in ObjFiles
+                            where FC.Id.Equals(id)
+                            select new { FC.FileName, FC.pdf }).ToList().FirstOrDefault();
+
+            return File(FileById.pdf, "application/pdf", FileById.FileName);
+
+        }
         [HttpGet]
-        public FileResult DownLoadFile(int id)
+        public FileResult DownLoadFil(int id)
         {
 
 
@@ -174,14 +214,14 @@ namespace Project_Managment.Controllers
 
             var FileById = (from FC in ObjFiles
                             where FC.Id.Equals(id)
-                            select new { FC.Case_Name, FC.pdf }).ToList().FirstOrDefault();
+                            select new { FC.FileName, FC.pdf }).ToList().FirstOrDefault();
 
-            return File(FileById.pdf, "application/pdf", FileById.Case_Name);
+            return File(FileById.pdf, "application/pdf", FileById.FileName);
 
         }
         #endregion
 
-        #region View Uploaded files
+        #region View Uploaded files  
         [HttpGet]
         public PartialViewResult FileDetails()
         {
@@ -203,24 +243,41 @@ namespace Project_Managment.Controllers
         }
 
         #endregion
-
-        #region Database related operations
+            
+        #region Database related operations  
         private void SaveFileDetails(FileDetailsModel objDet)
         {
 
             DynamicParameters Parm = new DynamicParameters();
-            Parm.Add("@FileName", objDet.Case_Name);
-            Parm.Add("@FileContent", objDet.pdf);
+    
+            Parm.Add("@FileName", objDet.FileName);
+            Parm.Add("@pdf", objDet.pdf);
             DbConnection();
             con.Open();
             con.Execute("AddFileDetails", Parm, commandType: System.Data.CommandType.StoredProcedure);
             con.Close();
 
+           
+
+        }
+        private void EditFileDetails(FileDetailsModel objDet)
+        {
+
+            DynamicParameters Parm = new DynamicParameters();
+            Parm.Add("@Id", objDet.Id);
+            Parm.Add("@FileName", objDet.FileName);
+            Parm.Add("@pdf", objDet.pdf);
+            DbConnection();
+            con.Open();
+            con.Execute("EditFileDetails", Parm, commandType: System.Data.CommandType.StoredProcedure);
+            con.Close();
+
+
 
         }
         #endregion
 
-        #region Database connection
+        #region Database connection  
 
         private SqlConnection con;
         private string constr;
