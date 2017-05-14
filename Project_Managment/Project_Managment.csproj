@@ -211,7 +211,6 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AssetsController.cs" />
-    <Compile Include="Controllers\AssetsListController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\InvoicesController.cs" />
     <Compile Include="Controllers\ManagerListsController.cs" />
@@ -686,11 +685,6 @@
     <Content Include="Views\Invoices\Edit.cshtml" />
     <Content Include="Views\Invoices\Index.cshtml" />
     <Content Include="Views\Assets\Edit.cshtml" />
-    <Content Include="Views\AssetsList\Create.cshtml" />
-    <Content Include="Views\AssetsList\Delete.cshtml" />
-    <Content Include="Views\AssetsList\Details.cshtml" />
-    <Content Include="Views\AssetsList\Edit.cshtml" />
-    <Content Include="Views\AssetsList\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DB_Scripts\" />
