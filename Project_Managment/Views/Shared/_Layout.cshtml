@@ -7,7 +7,7 @@
     @Styles.Render("~/Content/css")
         @Scripts.Render("~/bundles/modernizr")
         <script src="~/Scripts/timeout-dialog.js"></script>
-    <script>
+    @*<script>
    // session end
     var sessionTimeoutWarning = @Session.Timeout- 1;
 
@@ -20,7 +20,7 @@
         window.location = "/Home/Index";
     }
   
-    </script>    
+    </script>*@    
 </head>
 <body>
 
@@ -63,17 +63,15 @@
                 @* If not authenticated still show the links below *@
 
 
-            </div>
+             </div>
         </div>
         <div class="container body-content">
             @RenderBody()
             <hr />
             
         </div>
-        <div id="footer">
-            <footer class="text-center">
-                <p>&copy; @DateTime.Now.Year JCCC CIS - 264 Project by Team 3</p>
-            </footer>
+        <div id="footer" class="text-center">
+            <p>&copy; @DateTime.Now.Year JCCC CIS - 264 Project by Team 3</p>
         </div>
    
         @Scripts.Render("~/bundles/jquery")
@@ -81,3 +79,5 @@
                     @RenderSection("scripts", required: false)
     </body>
 </html>
+
+

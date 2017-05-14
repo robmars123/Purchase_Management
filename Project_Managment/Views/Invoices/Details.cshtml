@@ -84,17 +84,15 @@
             </p>
     </div>
     <div class="col-sm-6">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <h3 class="panel-title">PDF (@Html.DisplayFor(model => model.FileName))</h3>
-
-                    
-                        
-
+        <div class="panel panel-primary" style="padding-bottom: 10px;">
+            <div class="panel-heading">     
+                    <h3 class="panel-title">PDF (@Html.DisplayFor(model => model.FileName))</h3>
                 </div>
-@Html.ActionLink("Download", "DownloadFile", new { id = Model.Id }, htmlAttributes: new { @class = "btn btn-primary" })
-</div>
-</div>
+            <div style="margin: 15px; margin-bottom: 5px;">
+                @Html.ActionLink("Download", "DownloadFile", new { id = Model.Id }, htmlAttributes: new { @class = "btn btn-primary" })
+            </div>
+       </div>
+    </div>
 
 </div>
 </div>

@@ -6,6 +6,7 @@ namespace Project_Managment.Models
     using System.Linq;
     using Models;
     using System.Data.Entity.ModelConfiguration.Conventions;
+    using System.Data.Entity.Core.Objects;
 
     public partial class AccessDbContext : DbContext
     {
@@ -107,8 +108,19 @@ namespace Project_Managment.Models
             modelBuilder.Entity<Vendor>()
                 .Property(e => e.SSMA_TimeStamp)
                 .IsFixedLength();
+
+            modelBuilder.Entity<Asset>().Property(s => s.Comments).IsConcurrencyToken();
+            base.OnModelCreating(modelBuilder);
+
         }
+   
+
 
         public System.Data.Entity.DbSet<Project_Managment.Models.Invoice> Invoices { get; set; }
+
+        internal void Refresh(RefreshMode clientWins, object articles)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -13,7 +13,8 @@ using Dapper;
 using Project_Managment.Models;
 using PagedList;
 using PagedList.Mvc;
-
+using System.Data.Entity.Core;
+using System.Data.Entity.Core.Objects;
 
 namespace Project_Managment.Controllers
 {
@@ -75,7 +76,7 @@ namespace Project_Managment.Controllers
                         select s;
 
 
-                return View(g.ToList().ToPagedList(page ?? 1, 6));
+                return View(g.ToList().ToPagedList(page ?? 1, 20));
             }
             //     //Search Bar
             //if a user choose the radio button option as Subject  
@@ -136,7 +137,7 @@ namespace Project_Managment.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "AssetID,AssetDescription,EmployeeID,AssetCategoryID,StatusID,DepartmentID,VendorID,Make,ModelNumber,SerialNumber,DateAcquired,DateSold,PurchasePrice,DepreciationMethod,DepreciableLife,SalvageValue,CurrentValue,Comments,Description,NextSchedMaint,Processor,RAM,Condition,ComputerName,SSMA_TimeStamp,DepartmentCode,FundCode,ObjectCode")] Asset asset)
+        public ActionResult Create([Bind(Include = "AssetID,AssetDescription,EmployeeID,AssetCategoryID,StatusID,DepartmentID,VendorID,Make,ModelNumber,SerialNumber,DateAcquired,DateSold,PurchasePrice,DepreciationMethod,DepreciableLife,SalvageValue,CurrentValue,Comments,Description,NextSchedMaint,Processor,RAM,Condition,ComputerName,SSMA_TimeStamp")] Asset asset)
         {
             if (ModelState.IsValid)
             {
@@ -151,7 +152,8 @@ namespace Project_Managment.Controllers
         // GET: Assets/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            
+            if (id == null && id > 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
@@ -159,7 +161,13 @@ namespace Project_Managment.Controllers
             if (asset == null)
             {
                 return HttpNotFound();
-            }  
+            }
+            ViewBag.EmployeeID = new SelectList(db.Employees, "EmployeeID", "FirstName", "LastName", asset.EmployeeID);
+            ViewBag.AssetCategoryID = new SelectList(db.Asset_Categories, "AssetCategoryID", "AssetCategory", asset.AssetCategoryID);
+            ViewBag.DepartmentID = new SelectList(db.Departments, "DepartmentID", "DepartmentName", asset.DepartmentID);
+            ViewBag.StatusID = new SelectList(db.Status, "StatusID", "Status1", asset.StatusID);
+            ViewBag.VendorID = new SelectList(db.Vendors, "VendorID", "VendorName", asset.VendorID);
+            //ViewBag.ManagerListID = new SelectList(db.ManagerLists, "ManagerListID", "DepartmentName", asset.DepartmentID);
             return View(asset);
         }
 
@@ -168,15 +176,36 @@ namespace Project_Managment.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "AssetID,AssetDescription,EmployeeID,AssetCategoryID,StatusID,DepartmentID,VendorID,Make,ModelNumber,SerialNumber,DateAcquired,DateSold,PurchasePrice,DepreciationMethod,DepreciableLife,SalvageValue,CurrentValue,Comments,Description,NextSchedMaint,Processor,RAM,Condition,ComputerName,SSMA_TimeStamp,GroupID,DepartmentCode,FundCode,ObjectCode")] Asset asset)
+        public ActionResult Edit([Bind(Include = "AssetID,AssetDescription,EmployeeID,AssetCategoryID,StatusID,DepartmentID,VendorID,Make,ModelNumber,SerialNumber,DateAcquired,DateSold,PurchasePrice,DepreciationMethod,DepreciableLife,SalvageValue,CurrentValue,Comments,Description,NextSchedMaint,Processor,RAM,Condition,ComputerName,GroupID")] Asset asset)
         {
-            if (ModelState.IsValid)
+            if (asset.AssetID > 0)
             {
-                db.Entry(asset).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                //asset = db.Assets.Find(asset);
+                db.Assets.Attach(asset);
+
+                if (ModelState.IsValid)
+                {
+                    
+                    try
+                    {
+                        db.Entry(asset).State = EntityState.Modified;
+                       db.SaveChanges();
+                    }
+                    catch (OptimisticConcurrencyException ex)
+                    {
+                        db.Refresh(RefreshMode.ClientWins, db.Assets);
+                        db.SaveChanges();
+                    }
+                    //db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
-            //ViewBag.ManagerListID = new SelectList(db.ManagerLists, "EmployeeID", "FirstName", asset.EmployeeID);
+            ViewBag.ManagerListID = new SelectList(db.ManagerLists, "EmployeeID", "FirstName", asset.EmployeeID);
+            ViewBag.EmployeeID = new SelectList(db.Employees, "EmployeeID", "FirstName", "LastName", asset.EmployeeID);
+            ViewBag.AssetCategoryID = new SelectList(db.Asset_Categories, "AssetCategoryID", "AssetCategory", asset.AssetCategoryID);
+            ViewBag.DepartmentID = new SelectList(db.Departments, "DepartmentID", "DepartmentName", asset.DepartmentID);
+            ViewBag.StatusID = new SelectList(db.Status, "StatusID", "Status1", asset.StatusID);
+            ViewBag.VendorID = new SelectList(db.Vendors, "VendorID", "VendorName", asset.VendorID);
             return View(asset);
         }
 

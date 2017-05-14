@@ -15,8 +15,8 @@ namespace Project_Managment.Models
             Maintenances = new HashSet<Maintenance>();
 
         }
-
-       [Key, ForeignKey("Employees_Assets")]
+       
+        [Key, ForeignKey("Employees_Assets")]
         public int AssetID { get; set; }
 
         [StringLength(255)]
@@ -65,7 +65,7 @@ namespace Project_Managment.Models
 
         [Column(TypeName = "money")]
         public decimal? CurrentValue { get; set; }
-
+        [ConcurrencyCheck]
         public string Comments { get; set; }
 
         [StringLength(255)]
@@ -80,7 +80,7 @@ namespace Project_Managment.Models
         [StringLength(255)]
         public string RAM { get; set; }
 
-        [Required(ErrorMessage = "please enter the asset condition")]
+        
         [StringLength(255)]
         public string Condition { get; set; }
 
@@ -95,9 +95,9 @@ namespace Project_Managment.Models
        
         public int? ManagerListID { get; set; }
 
-        public int? DepartmentCode { get; set; }
-        public int? FundCode { get; set; }
-        public int? ObjectCode { get; set; }
+        //public int? DepartmentCode { get; set; }
+        //public int? FundCode { get; set; }
+        //public int? ObjectCode { get; set; }
 
 
 
