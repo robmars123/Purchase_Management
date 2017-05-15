@@ -370,3 +370,23 @@ D:\purchase management\Purchase_Management\Project_Managment\obj\Debug\Project_M
 D:\purchase management\Purchase_Management\Project_Managment\obj\Debug\Project_Managment.csprojResolveAssemblyReference.cache
 D:\purchase management\Purchase_Management\Project_Managment\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\robmars\Desktop\Purchase_Management\Purchase_Management\Project_Managment\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\mainama\Desktop\notuse\Project_Managment\bin\ApplicationInsights.config
+C:\Users\mainama\Desktop\notuse\Project_Managment\bin\roslyn\csc.exe
+C:\Users\mainama\Desktop\notuse\Project_Managment\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\mainama\Desktop\notuse\Project_Managment\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\mainama\Desktop\notuse\Project_Managment\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\mainama\Desktop\notuse\Project_Managment\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\mainama\Desktop\notuse\Project_Managment\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\mainama\Desktop\notuse\Project_Managment\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\mainama\Desktop\notuse\Project_Managment\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\mainama\Desktop\notuse\Project_Managment\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\mainama\Desktop\notuse\Project_Managment\bin\roslyn\vbc.exe
+C:\Users\mainama\Desktop\notuse\Project_Managment\bin\roslyn\VBCSCompiler.exe
+C:\Users\mainama\Desktop\notuse\Project_Managment\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\mainama\Desktop\notuse\Project_Managment\bin\Project_Managment.dll.config
+C:\Users\mainama\Desktop\notuse\Project_Managment\bin\Project_Managment.dll
+C:\Users\mainama\Desktop\notuse\Project_Managment\bin\Project_Managment.pdb
+C:\Users\mainama\Desktop\notuse\Project_Managment\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\mainama\Desktop\notuse\Project_Managment\obj\Debug\Project_Managment.csprojResolveAssemblyReference.cache
+C:\Users\mainama\Desktop\notuse\Project_Managment\obj\Debug\Project_Managment.dll
+C:\Users\mainama\Desktop\notuse\Project_Managment\obj\Debug\Project_Managment.pdb
