@@ -5,14 +5,14 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Create</h2>
+<h3>Assign New Manager</h3>
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Employee</h4>
+        <h4>Fill up the form with manager details</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         
